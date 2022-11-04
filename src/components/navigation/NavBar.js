@@ -13,7 +13,25 @@ const NavBar = (props) => {
               <Link to="/about">About</Link>
           </li>
           <li>
-              <Link to="/game/1">Game 1</Link>
+              <Link to="/games">Games</Link>
+          </li>
+          <li>
+              <Link to="/selector">Game Selector</Link>
+          </li>
+          <li>
+              <Link to="/groups">Groups</Link>
+          </li>
+          <li>
+              <Link to="/group/new">New Group</Link>
+          </li>
+          <li>
+              <Link to="/login">Login</Link>
+          </li>
+          <li>
+              <Link to="/register">Register</Link>
+          </li>
+          <li>
+              <Link to="/profile">Profile</Link>
           </li>
         </ul>
       </nav>
