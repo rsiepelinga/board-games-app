@@ -1,4 +1,14 @@
-export { default as About } from './About';
-export { default as Game } from './Game';
-export { default as Home } from './Home';
 export { default as Layout } from '../layouts/Layout';
+export { default as About } from './About';
+export { default as GameDetail } from './GameDetail';
+export { default as GameList } from './GameList';
+export { default as GameSelector } from './GameSelector';
+export { default as GroupDetail } from './GroupDetail';
+export { default as GroupEdit } from './GroupEdit';
+export { default as GroupList } from './GroupList';
+export { default as GroupNew } from './GroupNew';
+export { default as Home } from './Home';
+export { default as Login } from './Login';
+export { default as MemberDetail } from './MemberDetail';
+export { default as Profile } from './Profile';
+export { default as Register } from './Register';
