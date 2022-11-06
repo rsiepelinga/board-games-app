@@ -1,5 +1,4 @@
 import { createTheme } from "@mui/material/styles";
-import { hover } from "@testing-library/user-event/dist/hover";
 
 export const appTheme = createTheme({
   palette: {
@@ -36,6 +35,10 @@ export const appTheme = createTheme({
     body2: {
       fontSize: '0.8125rem',
       color: '#BFC0C0'
+    },
+    label: {
+      fontSize: '0.8125rem',
+      color: '#BFC0C0'
     }
   },
   components: {
@@ -59,7 +62,7 @@ export const appTheme = createTheme({
         root: {
           color: '#fff',
         }
-      }
+      },
     },
     MuiInputLabel: {
       styleOverrides: {
@@ -79,6 +82,28 @@ export const appTheme = createTheme({
               borderColor: '#fff'
             }
           }
+        }
+      }
+    },
+    MuiSlider: {
+      styleOverrides: {
+        track: {
+          backgroundColor: '#4f5d75'
+        },
+        thumb: {
+          backgroundColor: '#EF8354'
+        },
+        markLabel: {
+          color: '#fff',
+          // "&:nth-child(even)": {
+          //   transform: 'translateX(-100%)'
+          // },
+          // "&:nth-child(odd)": {
+          //   transform: 'translateX(100%)'
+          // }
+        },
+        rail: {
+          backgroundColor: '#4f5d75'
         }
       }
     }
