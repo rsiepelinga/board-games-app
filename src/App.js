@@ -1,10 +1,13 @@
 import React from 'react';
 import AppRoutes from './AppRoutes.js';
+import { CssBaseline, ThemeProvider } from '@mui/material';
+import { appTheme } from './themes/theme.js';
 
 export default function App() {
   return (
-    <div>
+    <ThemeProvider theme={appTheme}>
+      <CssBaseline enableColorScheme />
       <AppRoutes/>
-    </div>
+    </ThemeProvider>
   );
 }
