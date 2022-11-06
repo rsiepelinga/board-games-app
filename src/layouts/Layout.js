@@ -6,7 +6,9 @@ const Layout = ({component: Component}) => {
   return (
     <div>
       <NavBar/>
-      <Component/>
+      <div style={{padding: "70px 20px 0px"}}>
+        <Component/>
+      </div>
     </div>
   )
 }
