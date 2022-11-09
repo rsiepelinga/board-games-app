@@ -1,0 +1,39 @@
+[
+  {
+    "id": "1",
+    "name": "Candorians",
+    "members": [
+      {
+        "id": "1",
+        "name": "Rachel Siepelinga",
+        "initials": "RS"
+      },{
+        "id": "2",
+        "name": "Garrett Reichert",
+        "initials": "GR"
+      },{
+        "id": "3",
+        "name": "Caroline Lloyd",
+        "initials": "CL"
+      }
+    ]
+  },{
+    "id": "2",
+    "name": "Lofties",
+    "members": [
+      {
+        "id": "1",
+        "name": "Rachel Siepelinga",
+        "initials": "RS"
+      },{
+        "id": "4",
+        "name": "Dan Sidell",
+        "initials": "DS"
+      },{
+        "id": "5",
+        "name": "Brandon Baumer",
+        "initials": "BB"
+      }
+    ]
+  }
+]
