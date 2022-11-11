@@ -16,10 +16,12 @@ import Toolbar from '@mui/material/Toolbar';
 const drawerWidth = 240;
 const navItems = [
   {label: 'Home', path: '/'}, 
-  {label: 'Search', path: '/search'}, 
-  {label: 'Game Selector', path: '/selector'}, 
+  {label: 'About', path: '/about'}, 
+  {label: 'Selector', path: '/selector'}, 
+  {label: 'Groups', path: '/groups'}, 
   {label: 'Collection', path: '/collection'}, 
-  {label: 'Account', path: '/profile'}, 
+  {label: 'Search', path: '/search'}, 
+  {label: 'Profile', path: '/profile'}, 
   {label: 'Sign Out', path: '/login'}
 ];
 
@@ -33,9 +35,9 @@ function NavBar(props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <List>
+      <List style={{paddingTop: '50px'}}>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding sx={{"&:hover":{backgroundColor: '#EF8354'}}}>
+          <ListItem key={item} sx={{"&:hover":{backgroundColor: '#EF8354'}}}>
             <ListItemButton sx={{ textAlign: 'center' }} component={Link} to={item.path}>
               <ListItemText primary={item.label} sx={{color: '#FFF'}}/>
             </ListItemButton>
@@ -51,7 +53,7 @@ function NavBar(props) {
     <Box sx={{ display: 'flex' }}>
       <AppBar component="nav">
         <Toolbar>
-          <Box sx={{ padding: '10px 0' }}>
+          <Box sx={{ padding: '10px 0' }} component={Link} to="/">
             <img src={logo} alt="Logo" width="100"/>
           </Box>
           <Box sx={{ flexGrow: 1 }} />
