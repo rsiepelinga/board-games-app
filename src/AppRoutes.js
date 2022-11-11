@@ -1,9 +1,10 @@
 import React from 'react';
 import { createBrowserHistory } from 'history';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import { 
   Layout,
   About,
+  Error,
   GameDetail,
   GameList,
   GameSelector,
@@ -50,6 +51,7 @@ const AppRoutes = props => {
         <Route path="/search" element={<Layout component={Search}/>} />
         <Route path="/selector" element={<Layout component={GameSelector}/>} />
         <Route path="/" element={<Layout component={Home} />} />
+        <Route path="*" element={<Layout component={Error} />} />
       </Routes>
     </BrowserRouter>
   );
