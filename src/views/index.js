@@ -1,5 +1,6 @@
 export { default as Layout } from '../layouts/Layout';
 export { default as About } from './About';
+export { default as Error } from './Error';
 export { default as GameDetail } from './GameDetail';
 export { default as GameList } from './GameList';
 export { default as GameSelector } from './GameSelector';
