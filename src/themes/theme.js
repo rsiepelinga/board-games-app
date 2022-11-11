@@ -1,3 +1,4 @@
+import { red } from "@mui/material/colors";
 import { createTheme } from "@mui/material/styles";
 
 export const appTheme = createTheme({
@@ -38,7 +39,7 @@ export const appTheme = createTheme({
     },
     label: {
       fontSize: '0.8125rem',
-      color: '#BFC0C0'
+      color: '#fff'
     }
   },
   components: {
@@ -57,6 +58,14 @@ export const appTheme = createTheme({
         }
       }
     },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#EF8354',
+          color: '#fff'
+        }
+      }
+    },
     MuiInputBase: {
       styleOverrides: {
         root: {
@@ -71,20 +80,47 @@ export const appTheme = createTheme({
         }
       }
     },
-    MuiOutlinedInput: {
+    MuiMenuItem: {
       styleOverrides: {
-        notchedOutline: {
-          borderColor: '#BFC0C0',
-        },
         root: {
-          hover: {
-            notchedOutline: {
-              borderColor: '#fff'
-            }
-          }
+          color: '#fff'
         }
       }
     },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        notchedOutline: {
+          borderColor: '#4f5d75',
+        },
+        root: {
+          backgroundColor: '#4f5d75',
+          hover: {
+            notchedOutline: {
+              borderColor: '#4f5d75'
+            }
+          }
+        },
+        input: {
+          padding: '10px 15px'
+        }
+      }
+    },
+    // MuiSelect: {
+    //   styleOverrides: {
+    //     root: {
+    //       backgroundColor: '#4f5d75',
+    //       color: '#BFC0C0',
+    //       hover: {
+    //         notchedOutline: {
+    //           borderColor: '#4f5d75'
+    //         }
+    //       }
+    //     },
+    //     notchedOutline: {
+    //       borderColor: '#4f5d75',
+    //     }
+    //   }
+    // },
     MuiSlider: {
       styleOverrides: {
         track: {

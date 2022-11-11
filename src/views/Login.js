@@ -26,7 +26,7 @@ const Login = (props) => {
             placeholder="Username"
             />
         </Box>
-        <Box sx={{ padding: "5px 0"}}>
+        <Box sx={{ padding: "10px 0"}}>
           <TextField
             fullWidth
             id="password"

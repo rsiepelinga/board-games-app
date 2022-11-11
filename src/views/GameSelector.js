@@ -1,14 +1,34 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import Chip from '@mui/material/Chip';
 import Container from '@mui/material/Container';
 import FormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
+import OutlinedInput from '@mui/material/OutlinedInput';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import Slider from '@mui/material/Slider';
-import TextField from '@mui/material/TextField';
 import { Typography } from '@mui/material';
+
+const ownerOptions = [
+  'Me',
+  'Candorians',
+  'Lofties'
+];
+
+const typeOptions = [
+  'Cooperative',
+  'Competitive'
+];
+
+const mechanicOptions = [
+  'Deck Building',
+  'Engine Building',
+  'Tile Placement',
+  'Income',
+  'Hand Management',
+  'Resource Management'
+];
 
 const players = [
   { value: 0, label: '1',},
@@ -33,7 +53,7 @@ function valuetext(value) {
 const GameSeelctor = (props) => {
   const [owner, setOwner] = React.useState('');
   const [type, setType] = React.useState('');
-  const [mechanic, setMechanic] = React.useState('');
+  const [mechanic, setMechanic] = React.useState([]);
 
   const handleOwnerChange = (event) => {
     setOwner(event.target.value);
@@ -42,58 +62,91 @@ const GameSeelctor = (props) => {
     setType(event.target.value);
   };
   const handleMechanicChange = (event) => {
-    setMechanic(event.target.value);
+    const {
+      target: { value },
+    } = event;
+    setMechanic(
+      typeof value === 'string' ? value.split(',') : value,
+    );
   };
 
   return (
     <Container maxWidth="sm" sx={{padding: '10px'}}>
-      <Box sx={{padding: '10px 0'}}>
-        <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Owned By</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={owner}
-            label="Owned By"
-            onChange={handleOwnerChange}
-          >
-            <MenuItem value={"Me"}>Me</MenuItem>
-            <MenuItem value={"My Group"}>My Group</MenuItem>
-          </Select>
-        </FormControl>
+      <Box sx={{padding: '5px 0'}}>
+        <Typography variant="label">
+          Owned By
+        </Typography>
+        <Select
+          fullWidth
+          labelId="demo-simple-select-label"
+          variant="outlined"
+          id="demo-simple-select"
+          value={owner}
+          onChange={handleOwnerChange}
+        >
+          {ownerOptions.map((opt) => (
+            <MenuItem
+              key={opt}
+              value={opt}
+            >
+              {opt}
+            </MenuItem>
+          ))}
+        </Select>
       </Box>
-      <Box sx={{padding: '10px 0'}}>
-        <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Game Type</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={type}
-            label="Game Type"
-            onChange={handleTypeChange}
-          >
-            <MenuItem value={"Cooperative"}>Cooperative</MenuItem>
-            <MenuItem value={"Competitive"}>Competitive</MenuItem>
-          </Select>
-        </FormControl>
+      <Box sx={{padding: '5px 0'}}>
+        <Typography variant="label">
+          Game Type
+        </Typography>
+        <Select
+          fullWidth
+          labelId="demo-simple-select-label"
+          variant="outlined"
+          id="demo-simple-select"
+          value={type}
+          onChange={handleTypeChange}
+        >
+          {typeOptions.map((opt) => (
+            <MenuItem
+              key={opt}
+              value={opt}
+            >
+              {opt}
+            </MenuItem>
+          ))}
+        </Select>
       </Box>
-      <Box sx={{padding: '10px 0'}}>
-        <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Mechanic</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={mechanic}
-            label="Mechanic"
-            onChange={handleMechanicChange}
-          >
-            <MenuItem value={10}>Deck Building</MenuItem>
-            <MenuItem value={20}>Engine Building</MenuItem>
-            <MenuItem value={30}>Worker Placement</MenuItem>
-            <MenuItem value={30}>Tile Placing</MenuItem>
-            <MenuItem value={30}>Area Control</MenuItem>
-          </Select>
-        </FormControl>
+      <Box sx={{padding: '5px 0 10px'}}>
+        <Typography variant="label">
+          Mechanic
+        </Typography>
+        <Select
+          fullWidth
+          multiple
+          labelId="demo-simple-select-label"
+          variant="outlined"
+          id="demo-simple-select"
+          value={mechanic}
+          onChange={handleMechanicChange}
+          sx={{}}
+          input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
+          renderValue={(selected) => (
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+              {selected.map((value) => (
+                <Chip key={value} label={value} />
+              ))}
+            </Box>
+          )}
+        >
+          {mechanicOptions.map((opt) => (
+            <MenuItem
+              key={opt}
+              value={opt}
+            >
+              {opt}
+            </MenuItem>
+          ))}
+        </Select>
       </Box>
       <FormControl fullWidth>
         <Typography variant="label">

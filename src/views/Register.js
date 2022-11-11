@@ -26,7 +26,7 @@ const Register = (props) => {
             placeholder="First Name"
             />
         </Box>
-        <Box sx={{padding: '5px 0'}}>
+        <Box sx={{padding: '10px 0'}}>
           <TextField
             fullWidth
             id="last_name"
@@ -34,7 +34,7 @@ const Register = (props) => {
             placeholder="Last Name"
             />
         </Box>
-        <Box sx={{padding: '5px 0'}}>
+        <Box sx={{padding: '10px 0'}}>
           <TextField
             fullWidth
             id="email"
@@ -42,7 +42,7 @@ const Register = (props) => {
             placeholder="Email"
             />
         </Box>
-        <Box sx={{padding: '5px 0'}}>
+        <Box sx={{padding: '10px 0'}}>
           <TextField
             fullWidth
             id="password"
