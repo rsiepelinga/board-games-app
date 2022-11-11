@@ -27,10 +27,15 @@ export const appTheme = createTheme({
     h1: {
       color: '#fff',
       fontSize: '2rem',
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      paddingBottom: '10px'
     },
     h2: {
       fontSize: '1.5rem',
+      color: '#BFC0C0'
+    },
+    p: {
+      fontSize: '1rem',
       color: '#BFC0C0'
     },
     body2: {
