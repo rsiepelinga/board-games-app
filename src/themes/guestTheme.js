@@ -10,7 +10,7 @@ const orange = '#EF8354';
 const white = '#ffffff';
 const grey = '#BFC0C0';
 
-export const appTheme = createTheme({
+export const guestTheme = createTheme({
   palette: {
     primary: {
       main: dark_blue,
@@ -96,17 +96,6 @@ export const appTheme = createTheme({
         }
       }
     },
-    MuiChip: {
-      styleOverrides: {
-        root: {
-          color: white,
-          marginRight: '5px'
-        },
-        icon: {
-          color: orange
-        }
-      }
-    },
     MuiInputBase: {
       styleOverrides: {
         root: {
@@ -131,13 +120,12 @@ export const appTheme = createTheme({
     MuiOutlinedInput: {
       styleOverrides: {
         notchedOutline: {
-          borderColor: grey_blue,
+          borderColor: white,
         },
         root: {
-          backgroundColor: grey_blue,
           hover: {
             notchedOutline: {
-              borderColor: grey_blue
+              borderColor: white
             }
           }
         },
@@ -146,43 +134,21 @@ export const appTheme = createTheme({
         }
       }
     },
-    // MuiSelect: {
-    //   styleOverrides: {
-    //     root: {
-    //       backgroundColor: grey_blue,
-    //       color: grey,
-    //       hover: {
-    //         notchedOutline: {
-    //           borderColor: grey_blue
-    //         }
-    //       }
-    //     },
-    //     notchedOutline: {
-    //       borderColor: grey_blue,
-    //     }
-    //   }
-    // },
-    MuiSlider: {
+    MuiSelect: {
       styleOverrides: {
-        track: {
-          backgroundColor: grey_blue
+        root: {
+          backgroundColor: grey_blue,
+          color: grey,
+          hover: {
+            notchedOutline: {
+              borderColor: grey_blue
+            }
+          }
         },
-        thumb: {
-          backgroundColor: orange
-        },
-        markLabel: {
-          color: white,
-          // "&:nth-child(even)": {
-          //   transform: 'translateX(-100%)'
-          // },
-          // "&:nth-child(odd)": {
-          //   transform: 'translateX(100%)'
-          // }
-        },
-        rail: {
-          backgroundColor: grey_blue
+        notchedOutline: {
+          borderColor: grey_blue,
         }
       }
-    }
+    },
   }
 });
