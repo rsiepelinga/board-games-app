@@ -1,8 +1,7 @@
 import React from 'react';
 import { createBrowserHistory } from 'history';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import {appTheme} from './themes/theme.js'
-import {guestTheme} from './themes/guestTheme.js';
+import {appTheme, guestTheme} from './themes/theme.js'
 import { 
   Layout,
   About,

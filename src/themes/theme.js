@@ -186,3 +186,102 @@ export const appTheme = createTheme({
     }
   }
 });
+
+export const guestTheme = createTheme({
+  palette: {
+    primary: {
+      main: dark_blue,
+    },
+    secondary: {
+      main: orange,
+    },
+    info: {
+      main: grey_blue,
+    },
+    white: {
+      main: white,
+    },
+    grey: {
+      main: grey,
+    },
+    background: {
+      default: dark_blue,
+      paper: grey_blue,
+    },
+  },
+  typography: {
+    h1: {
+      color: white,
+      fontSize: '2rem',
+      fontFamily: font,
+      fontWeight: 'bold',
+      paddingBottom: '10px'
+    },
+    h3: {
+      color: grey,
+      fontSize: '1.5rem',
+      fontFamily: font,
+    },
+    body: {
+      color: grey,
+      fontSize: '0.8125rem',
+      fontFamily: font,
+    },
+  },
+  components: {
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          boxShadow: 'none'
+        }
+      }
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          fontWeight: 'bold',
+          textTransform: 'none'
+        }
+      }
+    },
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          color: white,
+        }
+      },
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          color: white
+        }
+      }
+    },
+    MuiMenuItem: {
+      styleOverrides: {
+        root: {
+          color: white
+        }
+      }
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        notchedOutline: {
+          borderColor: white,
+        },
+        root: {
+          hover: {
+            notchedOutline: {
+              borderColor: white
+            }
+          }
+        },
+        input: {
+          padding: '10px 15px'
+        }
+      }
+    }
+  }
+});
+
