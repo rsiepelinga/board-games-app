@@ -1,5 +1,5 @@
 class Collection {
-    constructor(obj) {
+    constructor(obj, owner) {
         obj = obj != null ? obj : {}
         this.id = obj.objectid != null ? obj.objectid : ''
         this.name = obj.name.text != null ? obj.name.text : ''
@@ -10,7 +10,9 @@ class Collection {
         this.weight = obj.weight != null ? obj.weight : ''
         this.rating = obj.stats.rating.average.value != null ? obj.stats.rating.average.value : ''
         this.image_url = obj.image != null ? obj.image : ''
-        this.mechanics = obj.mechanics != null ? obj.mechanics : ''
+        this.mechanics = obj.mechanics != null ? obj.mechanics : []
+        this.user_rating = obj.stats.rating.value != null ? obj.stats.rating.value : ''
+        this.owner = owner != null ? owner : ''
     }
 }
 
