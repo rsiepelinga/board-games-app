@@ -73,7 +73,7 @@ const GameSeelctor = (props) => {
   return (
     <Container maxWidth="sm" sx={{padding: '10px'}}>
       <Box sx={{padding: '5px 0'}}>
-        <Typography variant="label">
+        <Typography variant="field_label">
           Owned By
         </Typography>
         <Select
@@ -95,7 +95,7 @@ const GameSeelctor = (props) => {
         </Select>
       </Box>
       <Box sx={{padding: '5px 0'}}>
-        <Typography variant="label">
+        <Typography variant="field_label">
           Game Type
         </Typography>
         <Select
@@ -117,7 +117,7 @@ const GameSeelctor = (props) => {
         </Select>
       </Box>
       <Box sx={{padding: '5px 0 10px'}}>
-        <Typography variant="label">
+        <Typography variant="field_label">
           Mechanic
         </Typography>
         <Select
@@ -133,7 +133,7 @@ const GameSeelctor = (props) => {
           renderValue={(selected) => (
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
               {selected.map((value) => (
-                <Chip key={value} label={value} />
+                <Chip key={value} label={value} color="secondary"/>
               ))}
             </Box>
           )}
@@ -149,7 +149,7 @@ const GameSeelctor = (props) => {
         </Select>
       </Box>
       <FormControl fullWidth>
-        <Typography variant="label">
+        <Typography variant="field_label">
           Number of Players
         </Typography>
         <Slider
@@ -161,7 +161,7 @@ const GameSeelctor = (props) => {
         />
       </FormControl>
       <FormControl fullWidth>
-        <Typography variant="label">
+        <Typography variant="field_label">
           Average Rating
         </Typography>
         <Slider
@@ -173,7 +173,7 @@ const GameSeelctor = (props) => {
         />
       </FormControl>
       <FormControl fullWidth>
-        <Typography variant="label">
+        <Typography variant="field_label">
           Average Playtime
         </Typography>
         <Slider
@@ -185,7 +185,7 @@ const GameSeelctor = (props) => {
         />
       </FormControl>
       <Box sx={{ textAlign: "center"}}>
-        <Typography variant="body2">
+        <Typography variant="body">
           Indecisive?
           <Button 
             size="small"
