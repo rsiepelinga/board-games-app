@@ -1,50 +1,84 @@
-import { red } from "@mui/material/colors";
 import { createTheme } from "@mui/material/styles";
+import { letterSpacing } from "@mui/system";
+
+// Font Family
+const font = "'Montserrat', sans-serif";
+
+// Colors
+const dark_blue = '#2D3142';
+const grey_blue = '#4f5d75';
+const orange = '#EF8354';
+const white = '#ffffff';
+const grey = '#BFC0C0';
 
 export const appTheme = createTheme({
   palette: {
     primary: {
-      main: '#2D3142',
+      main: dark_blue,
     },
     secondary: {
-      main: '#EF8354',
+      main: orange,
     },
-    accent: {
-      main: '#4f5d75',
+    info: {
+      main: grey_blue,
     },
     white: {
-      main: '#ffffff',
+      main: white,
     },
     grey: {
-      main: '#BFC0C0',
+      main: grey,
     },
     background: {
-      default: '#2D3142',
-      paper: '#4f5d75',
+      default: dark_blue,
+      paper: grey_blue,
     },
   },
   typography: {
     h1: {
-      color: '#fff',
+      color: white,
       fontSize: '2rem',
+      fontFamily: font,
       fontWeight: 'bold',
       paddingBottom: '10px'
     },
     h2: {
+      color: white,
       fontSize: '1.5rem',
-      color: '#BFC0C0'
+      fontFamily: font,
+      fontWeight: 'bold'
+    },
+    h3: {
+      color: grey,
+      fontSize: '1.5rem',
+      fontFamily: font,
+    },
+    h4: {
+      color: white,
+      fontSize: '16px',
+      fontFamily: font,
+      fontWeight: 'bold',
+      textTransform: "uppercase",
+      letterSpacing: '2px',
+      paddingBottom: '10px',
+      borderBottom: '2px solid',
+      borderColor: white,
+      marginBottom: '10px',
+      textAlign: 'center'
     },
     p: {
+      color: grey,
       fontSize: '1rem',
-      color: '#BFC0C0'
+      fontFamily: font,
     },
-    body2: {
+    body: {
+      color: grey,
       fontSize: '0.8125rem',
-      color: '#BFC0C0'
+      fontFamily: font,
     },
-    label: {
-      fontSize: '0.8125rem',
-      color: '#fff'
+    field_label: {
+      color: white,
+      fontSize: '12px',
+      fontFamily: font,
     }
   },
   components: {
@@ -66,42 +100,46 @@ export const appTheme = createTheme({
     MuiChip: {
       styleOverrides: {
         root: {
-          backgroundColor: '#EF8354',
-          color: '#fff'
+          // backgroundColor: orange,
+          color: white,
+          marginRight: '5px'
+        },
+        icon: {
+          color: orange
         }
       }
     },
     MuiInputBase: {
       styleOverrides: {
         root: {
-          color: '#fff',
+          color: white,
         }
       },
     },
     MuiInputLabel: {
       styleOverrides: {
         root: {
-          color: '#fff'
+          color: white
         }
       }
     },
     MuiMenuItem: {
       styleOverrides: {
         root: {
-          color: '#fff'
+          color: white
         }
       }
     },
     MuiOutlinedInput: {
       styleOverrides: {
         notchedOutline: {
-          borderColor: '#4f5d75',
+          borderColor: grey_blue,
         },
         root: {
-          backgroundColor: '#4f5d75',
+          backgroundColor: grey_blue,
           hover: {
             notchedOutline: {
-              borderColor: '#4f5d75'
+              borderColor: grey_blue
             }
           }
         },
@@ -113,29 +151,29 @@ export const appTheme = createTheme({
     // MuiSelect: {
     //   styleOverrides: {
     //     root: {
-    //       backgroundColor: '#4f5d75',
-    //       color: '#BFC0C0',
+    //       backgroundColor: grey_blue,
+    //       color: grey,
     //       hover: {
     //         notchedOutline: {
-    //           borderColor: '#4f5d75'
+    //           borderColor: grey_blue
     //         }
     //       }
     //     },
     //     notchedOutline: {
-    //       borderColor: '#4f5d75',
+    //       borderColor: grey_blue,
     //     }
     //   }
     // },
     MuiSlider: {
       styleOverrides: {
         track: {
-          backgroundColor: '#4f5d75'
+          backgroundColor: grey_blue
         },
         thumb: {
-          backgroundColor: '#EF8354'
+          backgroundColor: orange
         },
         markLabel: {
-          color: '#fff',
+          color: white,
           // "&:nth-child(even)": {
           //   transform: 'translateX(-100%)'
           // },
@@ -144,7 +182,7 @@ export const appTheme = createTheme({
           // }
         },
         rail: {
-          backgroundColor: '#4f5d75'
+          backgroundColor: grey_blue
         }
       }
     }

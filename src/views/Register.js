@@ -13,7 +13,7 @@ const Register = (props) => {
         <Typography variant="h1">
           Hi welcome.
         </Typography>
-        <Typography variant="h2">
+        <Typography variant="h3">
           Complete the form to create an account.
         </Typography>
       </Box>
@@ -65,7 +65,7 @@ const Register = (props) => {
         padding: "10px", 
         textAlign: "center",
       }}>
-        <Typography variant="body2">
+        <Typography variant="body">
           Already have an account?
           <Button 
             size="small"

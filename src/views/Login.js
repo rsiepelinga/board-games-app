@@ -13,7 +13,7 @@ const Login = (props) => {
         <Typography variant="h1">
           Hi welcome.
         </Typography>
-        <Typography variant="h2">
+        <Typography variant="h3">
           Sign in to access cool board game stuff.
         </Typography>
       </Box>
@@ -40,7 +40,7 @@ const Login = (props) => {
         padding: "10px", 
         textAlign: "center",
       }}>
-        <Typography variant="body2">
+        <Typography variant="body">
           Don't have an account?
           <Button 
             size="small"
