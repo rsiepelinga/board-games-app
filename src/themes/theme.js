@@ -60,7 +60,7 @@ export const appTheme = createTheme({
       letterSpacing: '2px',
       paddingBottom: '10px',
       borderBottom: '2px solid',
-      borderColor: white,
+      borderColor: grey_blue,
       marginBottom: '10px',
       textAlign: 'center'
     },
@@ -284,4 +284,3 @@ export const guestTheme = createTheme({
     }
   }
 });
-

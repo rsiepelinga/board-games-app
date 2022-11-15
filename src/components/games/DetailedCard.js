@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import PersonIcon from '@mui/icons-material/Person';
@@ -34,7 +35,7 @@ function DetailedCard(props) {
   }
   
   return (
-    <div style={style.container}>
+    <Box style={style.container} component={Link} to={"/game/" + props.game.id}>
       {/* Left Column */}
       <div style={style.left}>
         <img 
@@ -72,7 +73,7 @@ function DetailedCard(props) {
         <br/>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
       </div>
-    </div>
+    </Box>
     )
   }
   
