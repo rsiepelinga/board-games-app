@@ -1,6 +1,6 @@
 import React from 'react';
 import DetailedCard from './DetailedCard.js';
-import { Container, Typography } from '@mui/material';
+import { Container, Box, Typography } from '@mui/material';
 
 
 function Library(props) {
@@ -12,13 +12,13 @@ function Library(props) {
       </Typography>
 
       {/* Results */}
-      <div style={{maxWdith: '100%'}}>
-        <div style={{display: 'block'}}>
+      <Box style={{maxWdith: '100%'}}>
+        <Box style={{display: 'block'}}>
           {props.collection.map((game) => (
             <DetailedCard key={game.id} game={game}/>
           ))}
-        </div>
-      </div>
+        </Box>
+      </Box>
     </Container>
   );
 }

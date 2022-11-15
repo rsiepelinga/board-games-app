@@ -1,21 +1,8 @@
 import React from 'react';
-import Carousel from '../components/games/Carousel.js';
+import { Typography, Container } from '@mui/material';
+import { Carousel } from '../../components';
 
 const GroupDetail = (props) => {
-  var style = {
-    h1: {
-      color: '#FFF',
-      textAlign: 'center',
-      fontSize: '24px',
-      fontWeight: 'bold'
-    },
-    p: {
-      color: '#FFF',
-      textAlign: 'center',
-      fontSize: '18px'
-    }
-  }
-
   var collection = [
     {
       id: "31260",
@@ -81,14 +68,14 @@ const GroupDetail = (props) => {
   ];
 
   return (
-    <div>
-      <p style={style.h1}>
+    <Container size="sm">
+      <Typography variant="h4">
         My Group
-      </p>
+      </Typography>
       <Carousel title="Group Games" collection={collection}/>
       <Carousel title="Trending Games" collection={collection}/>
       <Carousel title="Recommended Games" collection={collection}/>
-    </div>
+    </Container>
   );
 }
 

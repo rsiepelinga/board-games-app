@@ -1,6 +1,7 @@
 import React from 'react';
 import { createBrowserHistory } from 'history';
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import {appTheme, guestTheme} from './themes/theme.js'
 import { 
   Layout,
   About,
@@ -36,22 +37,22 @@ const AppRoutes = props => {
   return (
     <BrowserRouter history={history}>
       <Routes>
-        <Route path="/about" element={<Layout component={About} />} />
-        <Route path="/collection" element={<Layout component={GameList}/>} />
-        <Route path="/game/:id" element={<Layout component={GameDetail}/>} />
-        <Route path="/games" element={<Layout component={GameList}/>} />
-        <Route path="/group/:id" element={<Layout component={GroupDetail}/>} />
-        <Route path="/group/:id/edit" element={<Layout component={GroupEdit}/>} />
-        <Route path="/groups" element={<Layout component={GroupList}/>} />
-        <Route path="/group/new" element={<Layout component={GroupNew}/>} />
-        <Route path="/login" element={<Layout component={Login}/>} />
-        <Route path="/member/:id" element={<Layout component={MemberDetail}/>} />
-        <Route path="/profile" element={<Layout component={Profile}/>} />
-        <Route path="/register" element={<Layout component={Register}/>} />
-        <Route path="/search" element={<Layout component={Search}/>} />
-        <Route path="/selector" element={<Layout component={GameSelector}/>} />
-        <Route path="/" element={<Layout component={Home} />} />
-        <Route path="*" element={<Layout component={Error} />} />
+        <Route path="/about" element={<Layout theme={appTheme} component={About} />} />
+        <Route path="/collection" element={<Layout theme={appTheme} component={GameList}/>} />
+        <Route path="/game/:id" element={<Layout theme={appTheme} component={GameDetail}/>} />
+        <Route path="/games" element={<Layout theme={appTheme} component={GameList}/>} />
+        <Route path="/group/:id" element={<Layout theme={appTheme} component={GroupDetail}/>} />
+        <Route path="/group/:id/edit" element={<Layout theme={appTheme} component={GroupEdit}/>} />
+        <Route path="/groups" element={<Layout theme={appTheme} component={GroupList}/>} />
+        <Route path="/group/new" element={<Layout theme={appTheme} component={GroupNew}/>} />
+        <Route path="/login" element={<Layout theme={guestTheme} component={Login}/>} />
+        <Route path="/member/:id" element={<Layout theme={appTheme} component={MemberDetail}/>} />
+        <Route path="/profile" element={<Layout theme={appTheme} component={Profile}/>} />
+        <Route path="/register" element={<Layout theme={guestTheme} component={Register}/>} />
+        <Route path="/search" element={<Layout theme={appTheme} component={Search}/>} />
+        <Route path="/selector" element={<Layout theme={appTheme} component={GameSelector}/>} />
+        <Route path="/" element={<Layout theme={appTheme} component={Home} />} />
+        <Route path="*" element={<Layout theme={appTheme} component={Error} />} />
       </Routes>
     </BrowserRouter>
   );

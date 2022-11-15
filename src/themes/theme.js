@@ -1,5 +1,4 @@
 import { createTheme } from "@mui/material/styles";
-import { letterSpacing } from "@mui/system";
 
 // Font Family
 const font = "'Montserrat', sans-serif";
@@ -61,7 +60,7 @@ export const appTheme = createTheme({
       letterSpacing: '2px',
       paddingBottom: '10px',
       borderBottom: '2px solid',
-      borderColor: white,
+      borderColor: grey_blue,
       marginBottom: '10px',
       textAlign: 'center'
     },
@@ -100,7 +99,6 @@ export const appTheme = createTheme({
     MuiChip: {
       styleOverrides: {
         root: {
-          // backgroundColor: orange,
           color: white,
           marginRight: '5px'
         },
@@ -183,6 +181,104 @@ export const appTheme = createTheme({
         },
         rail: {
           backgroundColor: grey_blue
+        }
+      }
+    }
+  }
+});
+
+export const guestTheme = createTheme({
+  palette: {
+    primary: {
+      main: dark_blue,
+    },
+    secondary: {
+      main: orange,
+    },
+    info: {
+      main: grey_blue,
+    },
+    white: {
+      main: white,
+    },
+    grey: {
+      main: grey,
+    },
+    background: {
+      default: dark_blue,
+      paper: grey_blue,
+    },
+  },
+  typography: {
+    h1: {
+      color: white,
+      fontSize: '2rem',
+      fontFamily: font,
+      fontWeight: 'bold',
+      paddingBottom: '10px'
+    },
+    h3: {
+      color: grey,
+      fontSize: '1.5rem',
+      fontFamily: font,
+    },
+    body: {
+      color: grey,
+      fontSize: '0.8125rem',
+      fontFamily: font,
+    },
+  },
+  components: {
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          boxShadow: 'none'
+        }
+      }
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          fontWeight: 'bold',
+          textTransform: 'none'
+        }
+      }
+    },
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          color: white,
+        }
+      },
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          color: white
+        }
+      }
+    },
+    MuiMenuItem: {
+      styleOverrides: {
+        root: {
+          color: white
+        }
+      }
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        notchedOutline: {
+          borderColor: white,
+        },
+        root: {
+          hover: {
+            notchedOutline: {
+              borderColor: white
+            }
+          }
+        },
+        input: {
+          padding: '10px 15px'
         }
       }
     }

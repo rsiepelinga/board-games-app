@@ -1,4 +1,5 @@
 import React from 'react';
+import Box from '@mui/material/Box';
 import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 
@@ -17,11 +18,11 @@ function SimpleCard(props) {
   }
 
   return (
-    <Box style={style.container} component={Link} to={"/game/" + props.game.id}> 
+    <Box style={style.container} component={Link} to={"/game/" + props.game.id}>
       <img 
         style={style.image} 
         src={props.game.image_url} 
-        alt={props.game.name}
+        alt={props.game.name} 
       />
     </Box>
   )

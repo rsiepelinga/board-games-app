@@ -1,5 +1,6 @@
 import React from 'react';
-import Library from '../components/games/Library.js';
+import { Container } from '@mui/material';
+import { Library } from '../../components';
 
 const GameList = (props) => {
   var collection = [
@@ -101,10 +102,10 @@ const GameList = (props) => {
   ];
   
   return (
-    <div>
+    <Container size="sm">
       <Library title="My Collection" collection={collection}/>
-    </div>
-    );
-  }
-  
-  export default GameList;
+    </Container>
+  );
+}
+
+export default GameList;
