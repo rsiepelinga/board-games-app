@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 
-app.use('/server/collection', require('./routes/server/collection'));
+app.use('/api/collection', require('./routes/api/collection'));
 
 app.get('/', (req, res) => {
   res.send('Hello World!')

@@ -1,7 +1,7 @@
 import { httpGet } from '../api';
 
 function getCollectionData(username) {
-  return httpGet('/server/collection/username/' + username)
+  return httpGet('http://localhost:8000/api/collection/username/' + username)
     .then(result => {
       return result;
     })
