@@ -1,0 +1,3 @@
+export {
+    getCollectionData
+} from './GameActions';
