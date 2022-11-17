@@ -1,6 +1,6 @@
-import React from 'react';
-import { Container } from '@mui/material';
+import React, { useEffect } from 'react';
 import { Library } from '../../components';
+import { getCollectionData } from '../../actions';
 
 const GameList = (props) => {
   var collection = [
@@ -101,10 +101,14 @@ const GameList = (props) => {
     }
   ];
   
+  useEffect(() => {
+    collection = getCollectionData('rsiep');
+  });
+
   return (
-    <Container size="sm">
+    <div>
       <Library title="My Collection" collection={collection}/>
-    </Container>
+    </div>
   );
 }
 
