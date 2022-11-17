@@ -4,7 +4,7 @@ class Collection {
         this.id = obj.objectid != null ? obj.objectid : ''
         this.name = obj.name.text != null ? obj.name.text : ''
         this.min_duration = obj.stats.minplaytime != null ? obj.stats.minplaytime : ''
-        this.max_duration = obj.stats.maxplayers != null ? obj.stats.maxplayers : ''
+        this.max_duration = obj.stats.maxplaytime != null ? obj.stats.maxplaytime : ''
         this.min_players = obj.stats.minplayers != null ? obj.stats.minplayers : ''
         this.max_players = obj.stats.maxplayers != null ? obj.stats.maxplayers : ''
         this.weight = obj.weight != null ? obj.weight : ''
