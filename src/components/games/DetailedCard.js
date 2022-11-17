@@ -12,7 +12,8 @@ function DetailedCard(props) {
     container: {
       padding: '10px 0',
       display: 'flex',
-      maxWidth: '100%'
+      maxWidth: '100%',
+      textDecoration: 'none'
     },
     image: {
       width: '100px',
@@ -58,7 +59,7 @@ function DetailedCard(props) {
         </Chip>
         <Chip 
           icon={<PersonIcon/>} 
-          label={props.game.min_players + '-' + props.game.max_players}
+          label={props.game.min_players === props.game.max_players ? props.game.min_players : props.game.min_players + '-' + props.game.max_players}
           size="small" 
           color="info" 
           variant="outlined">
