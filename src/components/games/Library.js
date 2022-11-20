@@ -1,24 +1,25 @@
 import React from 'react';
 import DetailedCard from './DetailedCard.js';
-import { Container, Box, Typography } from '@mui/material';
+import { Box, Container, Grid, Typography } from '@mui/material';
 
 
 function Library(props) {
   return (
-    <Container maxWidth="sm">
-      {/* Title */}
-      <Typography variant="h4">
-        {props.title}
-      </Typography>
+    <Container>
+      <Box>
+        <Typography variant="h4">
+          {props.title}
+        </Typography>
+      </Box>
 
       {/* Results */}
-      <Box style={{maxWdith: '100%'}}>
-        <Box style={{display: 'block'}}>
-          {props.collection.map((game) => (
+      <Grid container style={{display: 'inline-flex'}}>
+        {props.collection.map((game) => (
+          <Grid xs={12} md={6} lg={4}>
             <DetailedCard key={game.id} game={game}/>
-          ))}
-        </Box>
-      </Box>
+          </Grid>
+        ))}
+      </Grid>
     </Container>
   );
 }

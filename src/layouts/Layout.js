@@ -8,7 +8,7 @@ const Layout = ({theme, component: Component}) => {
     <ThemeProvider theme={theme}>
       <CssBaseline enableColorScheme />
       <NavBar/>
-      <div style={{padding: "80px 20px 0px"}}>
+      <div style={{padding: "90px 20px 0px"}}>
         <Component/>
       </div>
     </ThemeProvider>
