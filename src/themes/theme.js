@@ -64,6 +64,18 @@ export const appTheme = createTheme({
       marginBottom: '10px',
       textAlign: 'center'
     },
+    h5: {
+      color: white,
+      fontSize: '16px',
+      fontFamily: font,
+      fontWeight: 'bold',
+      marginBottom: '5px',
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      display: "-webkit-box",
+      "-webkit-line-clamp": '2',
+      "-webkit-box-orient": "vertical"
+    },
     p: {
       color: grey,
       fontSize: '1rem',
@@ -81,6 +93,33 @@ export const appTheme = createTheme({
     }
   },
   components: {
+    MuiAccordion: {
+      styleOverrides: {
+        root: {
+          boxShadow: 'none'
+        }
+      }
+    },
+    MuiAccordionDetails: {
+      styleOverrides: {
+        root: {
+          backgroundColor: dark_blue,
+          color: white
+        }
+      }
+    },
+    MuiAccordionSummary: {
+      styleOverrides: { 
+        root: {
+          backgroundColor: dark_blue,
+          color: white,
+          fontWeight: 'bold',
+          paddingLeft: 0,
+          borderBottom: '2px solid',
+          borderColor: grey_blue
+        }
+      }
+    },
     MuiAppBar: {
       styleOverrides: {
         root: {
@@ -100,7 +139,8 @@ export const appTheme = createTheme({
       styleOverrides: {
         root: {
           color: white,
-          marginRight: '5px'
+          marginRight: '7px',
+          marginBottom: '7px',
         },
         icon: {
           color: orange
@@ -118,6 +158,13 @@ export const appTheme = createTheme({
       styleOverrides: {
         root: {
           color: white
+        }
+      }
+    },
+    MuiListItem: {
+      styleOverrides: {
+        root: {
+          color: grey
         }
       }
     },
@@ -146,22 +193,6 @@ export const appTheme = createTheme({
         }
       }
     },
-    // MuiSelect: {
-    //   styleOverrides: {
-    //     root: {
-    //       backgroundColor: grey_blue,
-    //       color: grey,
-    //       hover: {
-    //         notchedOutline: {
-    //           borderColor: grey_blue
-    //         }
-    //       }
-    //     },
-    //     notchedOutline: {
-    //       borderColor: grey_blue,
-    //     }
-    //   }
-    // },
     MuiSlider: {
       styleOverrides: {
         track: {

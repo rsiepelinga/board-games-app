@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../logos/logo_tt.png';
+import logo from '../../assets/logo.png';
 import { Link } from 'react-router-dom';
 
 import AppBar from '@mui/material/AppBar';

@@ -1,5 +1,5 @@
 import React from 'react';
-import meeple from '../../logos/meeple.png';
+import meeple from '../../assets/meeple.png';
 
 const Error = (props) => {
   var mobileStyle = {
