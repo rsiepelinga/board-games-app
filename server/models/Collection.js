@@ -13,6 +13,8 @@ class Collection {
     this.mechanics = obj.mechanics != null ? obj.mechanics : []
     this.user_rating = obj.stats.rating.value != null ? obj.stats.rating.value : ''
     this.owner = owner != null ? owner : ''
+    this.is_expansion = obj.subtype
+    this.year_published = obj.yearpublished
   }
 }
 

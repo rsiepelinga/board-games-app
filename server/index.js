@@ -5,6 +5,7 @@ const app = express();
 
 app.use(cors());
 
+app.use('/api/boardgame', require('./routes/api/boardgame'));
 app.use('/api/collection', require('./routes/api/collection'));
 
 app.get('/', (req, res) => {
