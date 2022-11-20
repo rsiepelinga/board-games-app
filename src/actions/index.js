@@ -1,3 +1,4 @@
 export {
-    getCollectionData
+    getCollectionData,
+    getGameData
 } from './GameActions';

@@ -1,34 +1,42 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { Container } from '@mui/material';
+import { getGameData } from '../../actions';
+import { Wrapper } from '../../components';
 
-const GameDetail = (props) => {
-  const { id } = useParams();
+function withParams(Component) {
+  return props => <Component {...props} params={useParams()} />;
+}
 
-  var style = {
-    h1: {
-      color: '#FFF',
-      textAlign: 'center',
-      fontSize: '24px',
-      paddingTop: '50px',
-      fontWeight: 'bold'
-    },
-    p: {
-      color: '#FFF',
-      textAlign: 'center',
-      fontSize: '18px'
+class GameDetail extends React.Component {
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      game: {}
     }
   }
 
-  return (
-    <div>
-      <p style={style.h1}>
-        Game {id} Page
-      </p>
-      <p style={style.p}>
-        This page is coming soon!
-      </p>
-    </div>
-  );
+  componentDidMount() {
+    let {id} = this.props.params;
+    this.getMyGame(id).then(result => {
+      this.setState({
+        game: result
+      });
+    })
+  }
+
+  getMyGame(id) {
+    return getGameData(id);
+  }
+
+  render() {
+    return (
+      <Container>
+        <Wrapper game={this.state.game}></Wrapper>
+      </Container>
+    );
+  }
 }
 
-export default GameDetail;
+export default withParams(GameDetail);

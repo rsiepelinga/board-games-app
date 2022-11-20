@@ -10,6 +10,17 @@ function getCollectionData(username) {
     });
 }
 
+function getGameData(gameId) {
+  return httpGet('http://localhost:8000/api/boardgame/' + gameId)
+    .then(result => {
+      return result;
+    })
+    .catch(error => {
+      console.error('ERROR getGameData', error);
+    });
+}
+
 export {
-  getCollectionData
+  getCollectionData,
+  getGameData
 };
