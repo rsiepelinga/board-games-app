@@ -1,7 +1,7 @@
 import React from 'react';
 import { Accordion, AccordionSummary, AccordionDetails, Box, Typography } from '@mui/material';
 import { ExpandMore } from '@mui/icons-material';
-import cleanString from '../utils';
+import cleanString from '../../utils';
 
 function Contributors(props) {
   var contributors = [];

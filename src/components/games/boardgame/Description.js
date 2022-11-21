@@ -1,7 +1,7 @@
 import React from 'react';
 import { Accordion, AccordionSummary, AccordionDetails, Typography, Skeleton } from '@mui/material';
 import { ExpandMore } from '@mui/icons-material';
-import cleanString from '../utils';
+import cleanString from '../../utils';
 
 function Description(props) {
   var isLoading = true;

@@ -3,7 +3,7 @@ import { Box, Typography, Skeleton } from '@mui/material';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import PersonIcon from '@mui/icons-material/Person';
 import StarIcon from '@mui/icons-material/Star';
-import cleanString from '../utils';
+import cleanString from '../../utils';
 
 function Details(props) {
   var isLoading = true;

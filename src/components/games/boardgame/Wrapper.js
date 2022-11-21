@@ -1,5 +1,6 @@
 import React from 'react';
 import Grid from '@mui/material/Grid';
+import Item from '@mui/material/Grid';
 import CircularProgress from '@mui/material/CircularProgress';
 import Contributors from './Contributors';
 import Description from './Description';
@@ -14,12 +15,16 @@ function Wrapper(props) {
     return (
       <Grid container spacing={{ xs: 1, sm: 2, md: 3}} style={{paddingTop: '10px'}}>
         <Grid xs={4} s={3} md={2}>
-          <Image game={props.game}></Image>
+          <Item>
+            <Image game={props.game}></Image>
+          </Item>
         </Grid>
       
         {/* Right Column */}
         <Grid xs={8} s={9} md={10} style={{paddingLeft: '20px'}}>
-          <Details game={props.game}></Details>
+          <Item>
+            <Details game={props.game}></Details>
+          </Item>
         </Grid>
   
         <Grid>

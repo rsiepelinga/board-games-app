@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Chip } from '@mui/material';
-import cleanString from '../utils';
+import cleanString from '../../utils';
 import CategoryIcon from '@mui/icons-material/Category';
 import SettingsIcon from '@mui/icons-material/Settings';
 
