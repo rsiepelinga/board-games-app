@@ -22,10 +22,14 @@ class Game {
     }
 
     findName(names) {
-      let primary = names.filter(function (item) {
-        return item.type === 'primary'
-      }); 
-      return primary != null ? primary[0].value : null;
+      if (Array.isArray(names)) {
+        let primary = names.filter(function (item) {
+          return item.type === 'primary'
+        }); 
+        return primary != null ? primary[0].value : null;
+      } else {
+        return names.value;
+      }
     }
 
     cleanString(str) {

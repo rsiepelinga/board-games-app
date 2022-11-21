@@ -19,6 +19,7 @@ async function getGame(gameId) {
   if(res.data.error) {
     return res.data.error.message;
   }
+
   return new Game(res.data.item);
   // console.log(res.data.item)
 }
