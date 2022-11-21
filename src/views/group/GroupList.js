@@ -1,31 +1,43 @@
 import React from 'react';
+import { GroupCard } from '../../components';
+import { getGroupsData } from '../../actions';
+import { Grid, Typography } from '@mui/material';
 
-const GroupList = (props) => {
-  var style = {
-    h1: {
-      color: '#FFF',
-      textAlign: 'center',
-      fontSize: '24px',
-      paddingTop: '50px',
-      fontWeight: 'bold'
-    },
-    p: {
-      color: '#FFF',
-      textAlign: 'center',
-      fontSize: '18px'
+class GameList extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      groups: []
     }
   }
 
-  return (
-    <div>
-      <p style={style.h1}>
-        Group List
-      </p>
-      <p style={style.p}>
-        This page is coming soon!
-      </p>
-    </div>
-  );
+  componentDidMount() {
+    this.loadData();
+  }
+  
+  loadData() {
+    let grps = getGroupsData('rsiep');
+    this.setState({
+      groups: grps
+    });
+  }
+
+  render() {
+    return (
+      <Grid container style={{display: 'inline-flex'}}>
+        <Grid xs={12}>
+          <Typography variant="h4">My Groups</Typography>
+        </Grid>
+
+        {this.state.groups.map((group) => (
+          <Grid xs={6} sm={4} md={3} style={{padding: '10px'}} key={group.id} >
+            <GroupCard group={group}/>
+          </Grid>
+        ))}
+      </Grid>
+    );
+  }
 }
 
-export default GroupList;
+export default GameList;
