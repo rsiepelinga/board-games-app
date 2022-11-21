@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Container } from '@mui/material';
 import { getGameData } from '../../actions';
-import { Wrapper } from '../../components';
+import { GameWrapper } from '../../components';
 
 function withParams(Component) {
   return props => <Component {...props} params={useParams()} />;
@@ -33,7 +33,7 @@ class GameDetail extends React.Component {
   render() {
     return (
       <Container>
-        <Wrapper game={this.state.game}></Wrapper>
+        <GameWrapper game={this.state.game}></GameWrapper>
       </Container>
     );
   }

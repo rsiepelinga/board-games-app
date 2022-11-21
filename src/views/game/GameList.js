@@ -1,6 +1,11 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import { Library } from '../../components';
 import { getCollectionData } from '../../actions';
+
+function withParams(Component) {
+  return props => <Component {...props} params={useParams()} />;
+}
 
 class GameList extends React.Component {
   constructor() {
@@ -12,22 +17,28 @@ class GameList extends React.Component {
   }
 
   componentDidMount() {
-    this.getMyCollection().then(result => {
+    let {id} = this.props.params;
+
+    this.loadData(id).then(result => {
       this.setState({
         collection: result
       });
     });
   }
 
-  getMyCollection() {
-    return getCollectionData('rsiep');
+  loadData(username) {
+    if (username) {
+      return getCollectionData(username);
+    } else {
+      return getCollectionData('rsiep');
+    }
   }
 
   render() {
     return (
-      <Library title="My Collection" collection={this.state.collection}/>
+      <Library title="Collection" collection={this.state.collection}/>
     );
   }
 }
 
-export default GameList;
+export default withParams(GameList);

@@ -39,6 +39,7 @@ const AppRoutes = props => {
       <Routes>
         <Route path="/about" element={<Layout theme={appTheme} component={About} />} />
         <Route path="/collection" element={<Layout theme={appTheme} component={GameList}/>} />
+        <Route path="/collection/:id" element={<Layout theme={appTheme} component={GameList}/>} />
         <Route path="/game/:id" element={<Layout theme={appTheme} component={GameDetail}/>} />
         <Route path="/games" element={<Layout theme={appTheme} component={GameList}/>} />
         <Route path="/group/:id" element={<Layout theme={appTheme} component={GroupDetail}/>} />
