@@ -1,10 +1,21 @@
-# Getting Started with Create React App
+# Getting Started with Table Talk App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `node server/index.js`
+
+Runs the server in the development mode.\
+Open [http://localhost:8000](http://localhost:8000) to view it in your browser.
+
+Paths:
+`/api/collection/username/:username`
+`/api/boardgame/:id`
+
+The page will not automatically reload when you make changes.\
 
 ### `npm start`
 
@@ -39,7 +50,7 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Learn More about Create React App
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
