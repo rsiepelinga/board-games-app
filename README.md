@@ -11,8 +11,8 @@ In the project directory, you can run:
 Runs the server in the development mode.\
 Open [http://localhost:8000](http://localhost:8000) to view it in your browser.
 
-Paths:
-`/api/collection/username/:username`
+Paths:\
+`/api/collection/username/:username`\
 `/api/boardgame/:id`
 
 The page will not automatically reload when you make changes.\
