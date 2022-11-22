@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Profile = (props) => {
-  var style = {
+  const style = {
     h1: {
       color: '#FFF',
       textAlign: 'center',
@@ -14,7 +14,7 @@ const Profile = (props) => {
       textAlign: 'center',
       fontSize: '18px'
     }
-  }
+  };
 
   return (
     <div>
@@ -26,6 +26,6 @@ const Profile = (props) => {
       </p>
     </div>
   );
-}
+};
 
 export default Profile;

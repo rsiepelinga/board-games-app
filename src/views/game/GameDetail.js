@@ -5,25 +5,25 @@ import { getGameData } from '../../actions';
 import { GameWrapper } from '../../components';
 
 function withParams(Component) {
-  return props => <Component {...props} params={useParams()} />;
+  return (props) => <Component {...props} params={useParams()} />;
 }
 
 class GameDetail extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       game: {}
-    }
+    };
   }
 
   componentDidMount() {
-    let {id} = this.props.params;
-    this.getMyGame(id).then(result => {
+    const { id } = this.props.params;
+    this.getMyGame(id).then((result) => {
       this.setState({
         game: result
       });
-    })
+    });
   }
 
   getMyGame(id) {
@@ -33,7 +33,7 @@ class GameDetail extends React.Component {
   render() {
     return (
       <Container>
-        <GameWrapper game={this.state.game}></GameWrapper>
+        <GameWrapper game={this.state.game} />
       </Container>
     );
   }

@@ -1,7 +1,6 @@
 import React from 'react';
 import SimpleCard from './SimpleCard.js';
 
-
 function Carousel(props) {
   const style = {
     container: {
@@ -18,7 +17,7 @@ function Carousel(props) {
     wrapper: {
       paddingTop: '10px'
     }
-  }
+  };
 
   return (
     <div style={style.wrapper}>
@@ -28,7 +27,7 @@ function Carousel(props) {
       <div style={style.container}>
         <div style={style.carousel}>
           {props.collection.map((game) => (
-            <SimpleCard key={game.id} game={game}/>
+            <SimpleCard key={game.id} game={game} />
           ))}
         </div>
       </div>

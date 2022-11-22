@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../../assets/logo.png';
 import { Link } from 'react-router-dom';
 
 import AppBar from '@mui/material/AppBar';
@@ -12,17 +11,18 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
+import logo from '../../assets/logo.png';
 
 const drawerWidth = 240;
 const navItems = [
-  {label: 'Home', path: '/'}, 
-  {label: 'About', path: '/about'}, 
-  {label: 'Selector', path: '/selector'}, 
-  {label: 'Groups', path: '/groups'}, 
-  {label: 'Collection', path: '/collection'}, 
-  {label: 'Search', path: '/search'}, 
-  {label: 'Profile', path: '/profile'}, 
-  {label: 'Sign Out', path: '/login'}
+  { label: 'Home', path: '/' },
+  { label: 'About', path: '/about' },
+  { label: 'Selector', path: '/selector' },
+  { label: 'Groups', path: '/groups' },
+  { label: 'Collection', path: '/collection' },
+  { label: 'Search', path: '/search' },
+  { label: 'Profile', path: '/profile' },
+  { label: 'Sign Out', path: '/login' }
 ];
 
 function NavBar(props) {
@@ -35,11 +35,11 @@ function NavBar(props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <List style={{paddingTop: '50px'}}>
+      <List style={{ paddingTop: '50px' }}>
         {navItems.map((item) => (
-          <ListItem key={item} sx={{"&:hover":{backgroundColor: '#EF8354'}}}>
+          <ListItem key={item} sx={{ '&:hover': { backgroundColor: '#EF8354' } }}>
             <ListItemButton sx={{ textAlign: 'center' }} component={Link} to={item.path}>
-              <ListItemText primary={item.label} sx={{color: '#FFF'}}/>
+              <ListItemText primary={item.label} sx={{ color: '#FFF' }} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -54,7 +54,7 @@ function NavBar(props) {
       <AppBar component="nav">
         <Toolbar>
           <Box sx={{ padding: '10px 0' }} component={Link} to="/">
-            <img src={logo} alt="Logo" width="100"/>
+            <img src={logo} alt="Logo" width="100" />
           </Box>
           <Box sx={{ flexGrow: 1 }} />
           <IconButton
@@ -74,8 +74,8 @@ function NavBar(props) {
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
-          ModalProps={{keepMounted: true}}
-          sx={{ '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },}}
+          ModalProps={{ keepMounted: true }}
+          sx={{ '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth } }}
         >
           {drawer}
         </Drawer>
