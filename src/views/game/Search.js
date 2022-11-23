@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Search = (props) => {
-  var style = {
+const Search = () => {
+  const style = {
     h1: {
       color: '#FFF',
       textAlign: 'center',
@@ -14,7 +14,7 @@ const Search = (props) => {
       textAlign: 'center',
       fontSize: '18px'
     }
-  }
+  };
 
   return (
     <div>
@@ -26,6 +26,6 @@ const Search = (props) => {
       </p>
     </div>
   );
-}
+};
 
 export default Search;

@@ -31,26 +31,25 @@ const mechanicOptions = [
 ];
 
 const players = [
-  { value: 0, label: '1',},
-  { value: 100, label: '8+',}
+  { value: 0, label: '1' },
+  { value: 100, label: '8+' }
 ];
 
 const rating = [
-  { value: 0, label: '1',},
-  { value: 100, label: '10',}
+  { value: 0, label: '1' },
+  { value: 100, label: '10' }
 ];
 
 const playtime = [
-  { value: 0, label: '≤15',},
-  { value: 100, label: '240≤',}
+  { value: 0, label: '≤15' },
+  { value: 100, label: '240≤' }
 ];
 
 function valuetext(value) {
   return `${value}°C`;
 }
 
-
-const GameSeelctor = (props) => {
+const GameSeelctor = () => {
   const [owner, setOwner] = React.useState('');
   const [type, setType] = React.useState('');
   const [mechanic, setMechanic] = React.useState([]);
@@ -63,16 +62,16 @@ const GameSeelctor = (props) => {
   };
   const handleMechanicChange = (event) => {
     const {
-      target: { value },
+      target: { value }
     } = event;
     setMechanic(
-      typeof value === 'string' ? value.split(',') : value,
+      typeof value === 'string' ? value.split(',') : value
     );
   };
 
   return (
-    <Container maxWidth="sm" sx={{padding: '10px'}}>
-      <Box sx={{padding: '5px 0'}}>
+    <Container maxWidth="sm" sx={{ padding: '10px' }}>
+      <Box sx={{ padding: '5px 0' }}>
         <Typography variant="field_label">
           Owned By
         </Typography>
@@ -94,7 +93,7 @@ const GameSeelctor = (props) => {
           ))}
         </Select>
       </Box>
-      <Box sx={{padding: '5px 0'}}>
+      <Box sx={{ padding: '5px 0' }}>
         <Typography variant="field_label">
           Game Type
         </Typography>
@@ -116,7 +115,7 @@ const GameSeelctor = (props) => {
           ))}
         </Select>
       </Box>
-      <Box sx={{padding: '5px 0 10px'}}>
+      <Box sx={{ padding: '5px 0 10px' }}>
         <Typography variant="field_label">
           Mechanic
         </Typography>
@@ -133,7 +132,7 @@ const GameSeelctor = (props) => {
           renderValue={(selected) => (
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
               {selected.map((value) => (
-                <Chip key={value} label={value} color="secondary"/>
+                <Chip key={value} label={value} color="secondary" />
               ))}
             </Box>
           )}
@@ -184,28 +183,30 @@ const GameSeelctor = (props) => {
           marks={playtime}
         />
       </FormControl>
-      <Box sx={{ textAlign: "center"}}>
+      <Box sx={{ textAlign: 'center' }}>
         <Typography variant="body">
           Indecisive?
-          <Button 
+          <Button
             size="small"
-            variant="text" 
+            variant="text"
             color="secondary"
-            href="/login">
-              Choose one for me.
+            href="/login"
+          >
+            Choose one for me.
           </Button>
         </Typography>
-        <Button 
+        <Button
           fullWidth
           size="large"
-          variant="contained" 
+          variant="contained"
           color="secondary"
-          href="/">
-            Show Me Options
+          href="/"
+        >
+          Show Me Options
         </Button>
       </Box>
     </Container>
   );
-}
+};
 
 export default GameSeelctor;

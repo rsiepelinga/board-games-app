@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
-import SimpleCard from './SimpleCard.js';
-
+import SimpleCard from './SimpleCard';
 
 function Carousel(props) {
   const style = {
@@ -18,7 +19,7 @@ function Carousel(props) {
     wrapper: {
       paddingTop: '10px'
     }
-  }
+  };
 
   return (
     <div style={style.wrapper}>
@@ -28,7 +29,7 @@ function Carousel(props) {
       <div style={style.container}>
         <div style={style.carousel}>
           {props.collection.map((game) => (
-            <SimpleCard key={game.id} game={game}/>
+            <SimpleCard key={game.id} game={game} />
           ))}
         </div>
       </div>

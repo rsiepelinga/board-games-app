@@ -5,26 +5,27 @@ import { getGroupData } from '../../actions';
 import { GroupWrapper } from '../../components';
 
 function withParams(Component) {
-  return props => <Component {...props} params={useParams()} />;
+  return (props) => <Component {...props} params={useParams()} />;
 }
 
 class GroupDetail extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       group: {}
-    }
+    };
   }
 
   componentDidMount() {
-    let {id} = this.props.params;
+    // eslint-disable-next-line react/destructuring-assignment, react/prop-types
+    const { id } = this.props.params;
     this.loadData(id);
   }
 
   loadData(id) {
-    let result = getGroupData(id);
-    console.log(result);
+    const result = getGroupData(id);
+
     this.setState({
       group: result
     });
@@ -33,7 +34,7 @@ class GroupDetail extends React.Component {
   render() {
     return (
       <Container>
-        <GroupWrapper group={this.state.group}></GroupWrapper>
+        <GroupWrapper group={this.state.group} />
       </Container>
     );
   }

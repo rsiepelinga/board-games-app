@@ -4,7 +4,7 @@ import { Library } from '../../components';
 import { getCollectionData } from '../../actions';
 
 function withParams(Component) {
-  return props => <Component {...props} params={useParams()} />;
+  return (props) => <Component {...props} params={useParams()} />;
 }
 
 class GameList extends React.Component {
@@ -13,30 +13,31 @@ class GameList extends React.Component {
 
     this.state = {
       collection: []
-    }
+    };
   }
 
   componentDidMount() {
-    let {id} = this.props.params;
+    // eslint-disable-next-line react/destructuring-assignment, react/prop-types
+    const { id } = this.props.params;
 
-    this.loadData(id).then(result => {
+    this.loadData(id).then((result) => {
       this.setState({
         collection: result
       });
     });
   }
 
+  // eslint-disable-next-line class-methods-use-this
   loadData(username) {
     if (username) {
       return getCollectionData(username);
-    } else {
-      return getCollectionData('rsiep');
     }
+    return getCollectionData('rsiep');
   }
 
   render() {
     return (
-      <Library title="Collection" collection={this.state.collection}/>
+      <Library title="Collection" collection={this.state.collection} />
     );
   }
 }

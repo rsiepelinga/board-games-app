@@ -1,7 +1,7 @@
 import React from 'react';
 
-const GroupEdit = (props) => {
-  var style = {
+const GroupEdit = () => {
+  const style = {
     h1: {
       color: '#FFF',
       textAlign: 'center',
@@ -14,7 +14,7 @@ const GroupEdit = (props) => {
       textAlign: 'center',
       fontSize: '18px'
     }
-  }
+  };
 
   return (
     <div>
@@ -26,6 +26,6 @@ const GroupEdit = (props) => {
       </p>
     </div>
   );
-}
+};
 
 export default GroupEdit;

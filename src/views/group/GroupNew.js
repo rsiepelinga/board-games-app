@@ -1,7 +1,7 @@
 import React from 'react';
 
-const GroupNew = (props) => {
-  var style = {
+const GroupNew = () => {
+  const style = {
     h1: {
       color: '#FFF',
       textAlign: 'center',
@@ -14,7 +14,7 @@ const GroupNew = (props) => {
       textAlign: 'center',
       fontSize: '18px'
     }
-  }
+  };
 
   return (
     <div>
@@ -26,6 +26,6 @@ const GroupNew = (props) => {
       </p>
     </div>
   );
-}
+};
 
 export default GroupNew;

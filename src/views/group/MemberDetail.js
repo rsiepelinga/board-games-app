@@ -1,7 +1,7 @@
 import React from 'react';
 
-const MemberDetail = (props) => {
-  var style = {
+const MemberDetail = () => {
+  const style = {
     h1: {
       color: '#FFF',
       textAlign: 'center',
@@ -14,7 +14,7 @@ const MemberDetail = (props) => {
       textAlign: 'center',
       fontSize: '18px'
     }
-  }
+  };
 
   return (
     <div>
@@ -26,6 +26,6 @@ const MemberDetail = (props) => {
       </p>
     </div>
   );
-}
+};
 
 export default MemberDetail;
