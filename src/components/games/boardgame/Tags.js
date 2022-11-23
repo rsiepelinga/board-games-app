@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import { Box, Chip } from '@mui/material';
 import CategoryIcon from '@mui/icons-material/Category';

@@ -18,13 +18,14 @@ class GroupDetail extends React.Component {
   }
 
   componentDidMount() {
+    // eslint-disable-next-line react/destructuring-assignment, react/prop-types
     const { id } = this.props.params;
     this.loadData(id);
   }
 
   loadData(id) {
     const result = getGroupData(id);
-    console.log(result);
+
     this.setState({
       group: result
     });

@@ -1,8 +1,10 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import {
   Box, Container, Grid, Typography
 } from '@mui/material';
-import DetailedCard from './DetailedCard.js';
+import DetailedCard from './DetailedCard';
 
 function Library(props) {
   return (

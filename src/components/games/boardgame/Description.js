@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import {
   Accordion, AccordionSummary, AccordionDetails, Typography, Skeleton
@@ -19,7 +21,7 @@ function Description(props) {
         Description
       </AccordionSummary>
       <AccordionDetails>
-        <Typography variant="p">{isLoading ? <Skeleton /> : description.split('\n').map((item, i) => <p key={i}>{item}</p>)}</Typography>
+        <Typography variant="p">{isLoading ? <Skeleton /> : description.split('\n').map((item) => <p key={item}>{item}</p>)}</Typography>
       </AccordionDetails>
     </Accordion>
   );

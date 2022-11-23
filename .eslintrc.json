@@ -16,23 +16,28 @@
     "react"
   ],
   "rules": {
-    "comma-dangle": ["error", "never"],
     "arrow-body-style": ["error", "as-needed"],
+    "comma-dangle": ["error", "never"],
     "eol-last": ["error", "never"],
+    "prefer-destructuring": ["error", {
+      "array": false,
+      "object": false
+      }, {
+      "enforceForRenamedProperties": false
+    }],
+    "prefer-promise-reject-errors": [0, "error"],
+    "no-async-promise-executor": [0, "error"],
     "quotes": ["error", "single", { "avoidEscape": true }],
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/function-component-definition": [1, {
       "namedComponents": ["function-declaration","function-expression","arrow-function"],
       "unnamedComponents": ["function-expression","arrow-function"]
     }],
-    "react/destructuring-assignment": [1, "always"],
-    "prefer-destructuring": ["error", {
-      "array": false,
-      "object": false
-    }, {
-      "enforceForRenamedProperties": false
-    }],
-    "no-async-promise-executor": [0, "error"],
-    "prefer-promise-reject-errors": [0, "error"]
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-props-no-spreading": [0, {
+      "html": "enforce",
+      "custom": "enforce",
+      "explicitSpread": "enforce"
+    }]
+    
   }
 }

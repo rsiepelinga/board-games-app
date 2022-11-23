@@ -18,6 +18,7 @@ class GameDetail extends React.Component {
   }
 
   componentDidMount() {
+    // eslint-disable-next-line react/prop-types
     const { id } = this.props.params;
     this.getMyGame(id).then((result) => {
       this.setState({
@@ -26,6 +27,7 @@ class GameDetail extends React.Component {
     });
   }
 
+  // eslint-disable-next-line class-methods-use-this
   getMyGame(id) {
     return getGameData(id);
   }

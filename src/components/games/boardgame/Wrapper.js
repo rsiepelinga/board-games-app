@@ -1,5 +1,9 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable import/no-duplicates */
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
-import { Grid, Item } from '@mui/material/Grid';
+import Grid from '@mui/material/Grid';
+import Item from '@mui/material/Grid';
 import CircularProgress from '@mui/material/CircularProgress';
 import Contributors from './Contributors';
 import Description from './Description';

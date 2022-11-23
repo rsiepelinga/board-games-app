@@ -5,7 +5,7 @@ import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
 import { Typography } from '@mui/material';
 
-const Register = (props) => (
+const Register = () => (
   <Container maxWidth="sm">
     <Box sx={{ padding: '10px', textAlign: 'left' }}>
       <Typography variant="h1">

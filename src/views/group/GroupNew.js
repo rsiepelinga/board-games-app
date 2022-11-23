@@ -1,6 +1,6 @@
 import React from 'react';
 
-const GroupNew = (props) => {
+const GroupNew = () => {
   const style = {
     h1: {
       color: '#FFF',

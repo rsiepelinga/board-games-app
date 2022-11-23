@@ -1,6 +1,6 @@
 import React from 'react';
 
-const GroupEdit = (props) => {
+const GroupEdit = () => {
   const style = {
     h1: {
       color: '#FFF',

@@ -49,7 +49,7 @@ function valuetext(value) {
   return `${value}°C`;
 }
 
-const GameSeelctor = (props) => {
+const GameSeelctor = () => {
   const [owner, setOwner] = React.useState('');
   const [type, setType] = React.useState('');
   const [mechanic, setMechanic] = React.useState([]);

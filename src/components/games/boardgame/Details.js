@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import { Box, Typography, Skeleton } from '@mui/material';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
@@ -13,7 +15,6 @@ function Details(props) {
 
   if (props && props.game && props.game.name) {
     name = props.game.name;
-    console.log(name);
     rating = Number.parseFloat(props.game.rating).toFixed(2);
     players = props.game.min_players === props.game.max_players ? props.game.min_players : `${props.game.min_players}-${props.game.max_players}`;
     duration = props.game.min_duration === props.game.max_duration ? props.game.min_duration : `${props.game.min_duration}-${props.game.max_duration}`;

@@ -17,6 +17,7 @@ class GameList extends React.Component {
   }
 
   componentDidMount() {
+    // eslint-disable-next-line react/destructuring-assignment, react/prop-types
     const { id } = this.props.params;
 
     this.loadData(id).then((result) => {
@@ -26,6 +27,7 @@ class GameList extends React.Component {
     });
   }
 
+  // eslint-disable-next-line class-methods-use-this
   loadData(username) {
     if (username) {
       return getCollectionData(username);

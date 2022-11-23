@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
@@ -9,12 +11,12 @@ import PersonIcon from '@mui/icons-material/Person';
 import StarIcon from '@mui/icons-material/Star';
 
 function DetailedCard(props) {
-  let game_name;
+  let gameName;
   let rating;
 
   if (props && props.game && props.game.name) {
     rating = Number.parseFloat(props.game.rating).toFixed(2);
-    game_name = props.game.name;
+    gameName = props.game.name;
   }
 
   return (
@@ -23,7 +25,7 @@ function DetailedCard(props) {
       <Grid xs={4} style={{ textAlign: 'center', verticalAlign: 'center' }}>
         <img
           src={props.game.image_url}
-          alt={game_name}
+          alt={gameName}
           component={Link}
           to={`/game/${props.game.id}`}
           width={100}
@@ -37,7 +39,7 @@ function DetailedCard(props) {
       <Grid xs={8} style={{ paddingLeft: '10px' }}>
         <Box>
           <Typography variant="h5">
-            {game_name}
+            {gameName}
             <span style={{ fontWeight: 'normal' }}>
 &nbsp;(
               {props.game.year_published}

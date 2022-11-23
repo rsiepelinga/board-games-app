@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MemberDetail = (props) => {
+const MemberDetail = () => {
   const style = {
     h1: {
       color: '#FFF',

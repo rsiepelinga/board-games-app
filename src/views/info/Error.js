@@ -1,7 +1,7 @@
 import React from 'react';
 import meeple from '../../assets/meeple.png';
 
-const Error = (props) => {
+const Error = () => {
   const mobileStyle = {
     container: {
       padding: '70px 0'
