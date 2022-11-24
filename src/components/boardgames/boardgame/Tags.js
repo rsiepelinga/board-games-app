@@ -1,28 +1,20 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/destructuring-assignment */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Box, Chip } from '@mui/material';
 import CategoryIcon from '@mui/icons-material/Category';
 import SettingsIcon from '@mui/icons-material/Settings';
 
-function Tags(props) {
-  const categories = [];
-  const mechanics = [];
+class Tags extends React.Component {
+  constructor(props) {
+    super(props);
 
-  if (props && props.game) {
-    if (props.game.categories && props.game.categories.length) {
-      props.game.categories.forEach((item) => {
-        categories.push(item);
-      });
-    }
-    if (props.game.mechanics && props.game.mechanics.length) {
-      props.game.mechanics.forEach((item) => {
-        mechanics.push(item);
-      });
-    }
+    this.state = {};
   }
 
-  if (categories.length || mechanics.length) {
+  render() {
+    const { tags } = this.props;
+    const { categories, mechanics } = tags;
+
     return (
       <Box style={{ paddingTop: '10px', paddingBottom: '10px' }}>
         {categories.map((category) => (
@@ -35,5 +27,12 @@ function Tags(props) {
     );
   }
 }
+
+Tags.propTypes = {
+  tags: PropTypes.shape({
+    categories: PropTypes.arrayOf(PropTypes.string),
+    mechanics: PropTypes.arrayOf(PropTypes.string)
+  }).isRequired
+};
 
 export default Tags;

@@ -1,23 +1,19 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/destructuring-assignment */
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Accordion, AccordionSummary, AccordionDetails, ListItem
 } from '@mui/material';
 import { ExpandMore } from '@mui/icons-material';
 
-function Expansions(props) {
-  const expansions = [];
+class Expansions extends React.Component {
+  constructor(props) {
+    super(props);
 
-  if (props && props.game && props.game.expansions) {
-    if (props.game.expansions.length) {
-      props.game.expansions.forEach((item) => {
-        expansions.push(item);
-      });
-    }
+    this.state = {};
   }
 
-  if (expansions.length) {
+  render() {
+    const { expansions } = this.props;
     return (
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMore color="white" />}>
@@ -36,5 +32,9 @@ function Expansions(props) {
     );
   }
 }
+
+Expansions.propTypes = {
+  expansions: PropTypes.arrayOf(PropTypes.string).isRequired
+};
 
 export default Expansions;
