@@ -1,30 +1,35 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/destructuring-assignment */
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
-  Accordion, AccordionSummary, AccordionDetails, Typography, Skeleton
+  Accordion, AccordionSummary, AccordionDetails, Typography
 } from '@mui/material';
 import { ExpandMore } from '@mui/icons-material';
 
-function Description(props) {
-  let isLoading = true;
-  let description;
+class Description extends React.Component {
+  constructor(props) {
+    super(props);
 
-  if (props && props.game && props.game.description) {
-    description = props.game.description;
-    isLoading = false;
+    this.state = {};
   }
 
-  return (
-    <Accordion>
-      <AccordionSummary expandIcon={<ExpandMore color="white" />}>
-        Description
-      </AccordionSummary>
-      <AccordionDetails>
-        <Typography variant="p">{isLoading ? <Skeleton /> : description.split('\n').map((item) => <p key={item}>{item}</p>)}</Typography>
-      </AccordionDetails>
-    </Accordion>
-  );
+  render() {
+    const { description } = this.props;
+
+    return (
+      <Accordion>
+        <AccordionSummary expandIcon={<ExpandMore color="white" />}>
+          Description
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography variant="p">{description}</Typography>
+        </AccordionDetails>
+      </Accordion>
+    );
+  }
 }
+
+Description.propTypes = {
+  description: PropTypes.string.isRequired
+};
 
 export default Description;

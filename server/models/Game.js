@@ -1,26 +1,42 @@
 class Game {
   constructor(obj) {
-    this.id = obj.id || '';
-    this.name = this.cleanString(this.findName(obj.name));
+    // Descriptions
+    this.details = {};
+    this.details.id = obj.id || '';
+    this.details.name = this.cleanString(this.findName(obj.name));
+    this.details.year_published = obj.yearpublished.value || '';
+    // Duration
+    this.details.min_duration = obj.minplaytime.value || '';
+    this.details.max_duration = obj.maxplaytime.value || '';
+    this.details.duration = obj.minplaytime.value === obj.maxplaytime.value
+      ? obj.minplaytime.value
+      : `${obj.minplaytime.value}-${obj.maxplaytime.value}`;
+    // Players
+    this.details.min_players = obj.minplayers.value || '';
+    this.details.max_players = obj.maxplayers.value || '';
+    this.details.players = obj.minplayers.value === obj.maxplayers.value
+      ? obj.minplayers.value
+      : `${obj.minplayers.value}-${obj.maxplayers.value}`;
+    // Ratings
+    const ratings = obj.statistics.ratings;
+    this.details.weight = parseFloat(ratings.averageweight.value).toFixed(2) || '';
+    this.details.rating = parseFloat(ratings.average.value).toFixed(2) || '';
+    // Description
     this.image_url = obj.image || '';
     this.description = this.cleanString(obj.description) || '';
-    this.year_published = obj.yearpublished.value || '';
-    this.min_duration = obj.minplaytime.value || '';
-    this.max_duration = obj.maxplaytime.value || '';
-    this.min_players = obj.minplayers.value || '';
-    this.max_players = obj.maxplayers.value || '';
-    const ratings = obj.statistics.ratings;
-    this.weight = ratings.averageweight.value || '';
-    this.rating = ratings.average.value || '';
-    this.categories = this.filterLinks(obj.link, 'boardgamecategory');
-    this.mechanics = this.filterLinks(obj.link, 'boardgamemechanic');
+    // Expansions
     this.expansions = this.filterLinks(obj.link, 'boardgameexpansion');
-    this.publishers = this.filterLinks(obj.link, 'boardgamepublisher');
-    this.designers = this.filterLinks(obj.link, 'boardgamedesigner');
-    this.artists = this.filterLinks(obj.link, 'boardgameartist');
+    // Tags: Categories & Mechanics
+    this.tags = {};
+    this.tags.categories = this.filterLinks(obj.link, 'boardgamecategory');
+    this.tags.mechanics = this.filterLinks(obj.link, 'boardgamemechanic');
+    // Contributors: Publishers, Designers & Artists
+    this.contributors = {};
+    this.contributors.publishers = this.filterLinks(obj.link, 'boardgamepublisher');
+    this.contributors.designers = this.filterLinks(obj.link, 'boardgamedesigner');
+    this.contributors.artists = this.filterLinks(obj.link, 'boardgameartist');
   }
 
-  // eslint-disable-next-line class-methods-use-this
   findName(names) {
     if (Array.isArray(names)) {
       return names.filter((item) => item.type === 'primary').shift().value;
@@ -29,7 +45,6 @@ class Game {
   }
 
   // TODO: Look-up decode XML in Javascript
-  // eslint-disable-next-line class-methods-use-this
   cleanString(str) {
     return str.toString().replaceAll('&amp;', '&')
       .replaceAll('&amp;', '&')
@@ -40,7 +55,6 @@ class Game {
       .replaceAll('&#195;&#182;', 'ã');
   }
 
-  // eslint-disable-next-line class-methods-use-this
   filterLinks(links, filterVal) {
     // eslint-disable-next-line prefer-const
     let results = [];

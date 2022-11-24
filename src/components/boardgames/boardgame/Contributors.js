@@ -1,61 +1,63 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import {
   Accordion, AccordionSummary, AccordionDetails, Box, Typography
 } from '@mui/material';
 import { ExpandMore } from '@mui/icons-material';
 
-function Contributors(props) {
-  const contributors = [];
-  const publishers = [];
-  const designers = [];
-  const artists = [];
+class Contributors extends React.Component {
+  constructor(props) {
+    super(props);
 
-  if (props && props.game) {
-    if (props.game.publishers && props.game.publishers.length) {
-      props.game.publishers.forEach((item) => {
-        publishers.push(item);
-      });
-      contributors.push({ label: 'Publishers', values: publishers.join(', ') });
-    }
-    if (props.game.designers && props.game.designers.length) {
-      props.game.designers.forEach((item) => {
-        designers.push(item);
-      });
-      contributors.push({ label: 'Designers', values: designers.join(', ') });
-    }
-    if (props.game.artists && props.game.artists.length) {
-      props.game.artists.forEach((item) => {
-        artists.push(item);
-      });
-      contributors.push({ label: 'Artists', values: artists.join(', ') });
-    }
+    this.state = {};
   }
 
-  if (contributors.length) {
+  render() {
+    const { contributors } = this.props;
+    const { publishers, designers, artists } = contributors;
+
     return (
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMore color="white" />}>
           Publishers, Designers, and Artists
         </AccordionSummary>
         <AccordionDetails>
-          {contributors.map((con) => (
-            <Box key={con.label}>
-              <Typography variant="p">
-                <b>
-                  {con.label}
-                  :
-                </b>
-                {' '}
-                {con.values}
-              </Typography>
-            </Box>
-          ))}
+          <Box>
+            <Typography variant="p">
+              <b>Publishers:</b>
+              {' '}
+              {publishers.join(', ')}
+            </Typography>
+          </Box>
+          <Box>
+            <Typography variant="p">
+              <b>Designers:</b>
+              {' '}
+              {designers.join(', ')}
+            </Typography>
+          </Box>
+          <Box>
+            <Typography variant="p">
+              <b>Artists:</b>
+              {' '}
+              {artists.join(', ')}
+            </Typography>
+          </Box>
         </AccordionDetails>
       </Accordion>
     );
   }
 }
+
+Contributors.propTypes = {
+  contributors: PropTypes.shape({
+    publishers: PropTypes.arrayOf(PropTypes.string),
+    designers: PropTypes.arrayOf(PropTypes.string),
+    artists: PropTypes.arrayOf(PropTypes.string)
+  }).isRequired
+};
 
 export default Contributors;

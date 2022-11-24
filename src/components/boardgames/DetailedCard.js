@@ -20,14 +20,14 @@ function DetailedCard(props) {
   }
 
   return (
-    <Grid container component={Link} to={`/game/${props.game.id}`} style={{ textDecoration: 'none', paddingBottom: '10px' }}>
+    <Grid container component={Link} to={`/boardgame/${props.game.id}`} style={{ textDecoration: 'none', paddingBottom: '10px' }}>
       {/* Left Column */}
       <Grid xs={4} style={{ textAlign: 'center', verticalAlign: 'center' }}>
         <img
           src={props.game.image_url}
           alt={gameName}
           component={Link}
-          to={`/game/${props.game.id}`}
+          to={`/boardgame/${props.game.id}`}
           width={100}
           height={100}
           style={{
