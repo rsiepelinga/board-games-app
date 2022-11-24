@@ -6,7 +6,6 @@ import WindowIcon from '@mui/icons-material/Window';
 import CasinoIcon from '@mui/icons-material/Casino';
 import SearchIcon from '@mui/icons-material/Search';
 import HomeIcon from '@mui/icons-material/Home';
-import BungalowOutlinedIcon from '@mui/icons-material/BungalowOutlined';
 import Diversity3Icon from '@mui/icons-material/Diversity3';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Paper from '@mui/material/Paper';
@@ -22,13 +21,14 @@ export default function FixedBottomNavigation() {
       elevation={3}
     >
       <BottomNavigation
+        showLabels
         value={value}
         onChange={(event, newValue) => {
           setValue(newValue);
         }}
         sx={{ backgroundColor: '#2E3142' }}
       >
-        <BottomNavigationAction label="Home" icon={<BungalowOutlinedIcon color="white" />} />
+        <BottomNavigationAction label="Home" icon={<HomeIcon color="white" />} />
         <BottomNavigationAction label="Groups" icon={<Diversity3Icon color="white" />} />
         {/* <BottomNavigationAction label="Games" icon={<CasinoIcon color="secondary" />} /> */}
         <BottomNavigationAction label="Selector" icon={<SearchIcon color="white" />} />
