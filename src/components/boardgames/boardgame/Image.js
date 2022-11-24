@@ -1,17 +1,24 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/destructuring-assignment */
 import React from 'react';
-import { Skeleton } from '@mui/material';
+import PropTypes from 'prop-types';
 
-function Image(props) {
-  if (props.game) {
+class Image extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {};
+  }
+
+  render() {
+    const { image_url } = this.props;
+
     return (
-      <img src={props.game.image_url} alt={props.game.name} width="100%" />
+      <img src={image_url} alt="Game Thumbnail" width="100%" />
     );
   }
-  return (
-    <Skeleton variant="rectangular" width="100%" height={150} />
-  );
 }
+
+Image.propTypes = {
+  image_url: PropTypes.string.isRequired
+};
 
 export default Image;

@@ -18,7 +18,7 @@ function SimpleCard(props) {
   };
 
   return (
-    <Box style={style.container} component={Link} to={`/game/${props.game.id}`}>
+    <Box style={style.container} component={Link} to={`/boardgame/${props.game.id}`}>
       <img
         style={style.image}
         src={props.game.image_url}

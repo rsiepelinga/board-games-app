@@ -33,11 +33,7 @@
       "unnamedComponents": ["function-expression","arrow-function"]
     }],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "react/jsx-props-no-spreading": [0, {
-      "html": "enforce",
-      "custom": "enforce",
-      "explicitSpread": "enforce"
-    }]
-    
+    "class-methods-use-this": [0],
+    "camelcase": [0, {"ignoreDestructuring": true}]
   }
 }

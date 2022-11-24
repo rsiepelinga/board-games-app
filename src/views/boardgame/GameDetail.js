@@ -1,6 +1,8 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
-import { Container } from '@mui/material';
+import { CircularProgress, Container } from '@mui/material';
 import { getGameData } from '../../actions';
 import { GameWrapper } from '../../components';
 
@@ -13,15 +15,16 @@ class GameDetail extends React.Component {
     super(props);
 
     this.state = {
+      loaded: false,
       game: {}
     };
   }
 
   componentDidMount() {
-    // eslint-disable-next-line react/prop-types
-    const { id } = this.props.params;
-    this.getMyGame(id).then((result) => {
+    const { params } = this.props;
+    this.getMyGame(params.id).then((result) => {
       this.setState({
+        loaded: true,
         game: result
       });
     });
@@ -33,12 +36,24 @@ class GameDetail extends React.Component {
   }
 
   render() {
-    return (
-      <Container>
-        <GameWrapper game={this.state.game} />
-      </Container>
-    );
+    const { loaded } = this.state;
+
+    if (loaded) {
+      const { game } = this.state;
+      return (
+        <Container>
+          <GameWrapper game={game} />
+        </Container>
+      );
+    }
+    return (<CircularProgress color="secondary" />);
   }
 }
+
+GameDetail.propTypes = {
+  params: PropTypes.shape({
+    id: PropTypes.string
+  }).isRequired
+};
 
 export default withParams(GameDetail);
