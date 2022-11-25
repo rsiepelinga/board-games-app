@@ -1,8 +1,9 @@
 export {
-    getCollectionData,
-    getGameData
+  getCollectionData,
+  getCollectionWithDetailsData,
+  getGameData
 } from './GameActions';
 export {
-    getGroupsData,
-    getGroupData
+  getGroupsData,
+  getGroupData
 } from './GroupActions';

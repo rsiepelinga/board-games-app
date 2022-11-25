@@ -4,35 +4,65 @@ const Collection = require('../../models/Collection');
 
 const router = express.Router();
 
-async function getCollection(name) {
-  const res = await bgg.getBggCollection({ username: name, own: 1, stats: 1 });
+function handleResponse(res, reject) {
+  let isValid = true;
   if (res.status !== 200) {
-    return res.statusText;
+    isValid = false;
+    reject({ code: res.status, message: res.statusText });
+  } if (res.data.error) {
+    isValid = false;
+    reject({ code: res.status, message: res.data.error.message });
+  } if (!res.data.item) {
+    isValid = false;
+    reject({ code: 400, message: 'The requested resource does not exist.' });
   }
-  if (res.data.error) {
-    return res.data.error.message;
-  }
-  if (res.data.totalitems === '0') {
-    return [];
-  }
+  return isValid;
+}
 
-  const arr = [];
-  res.data.item.forEach((element) => {
-    const c = new Collection(element, name);
-    arr.push(c);
+async function getCollectionDetails(collection) {
+  return new Promise(async (resolve, reject) => {
+    const bgIds = collection.map((element) => Number(element.objectid));
+    const res = await bgg.getBggThing({ id: bgIds, stats: 1 });
+
+    const validBgResponse = handleResponse(res, reject);
+    if (!validBgResponse) { return; }
+
+    resolve(new Collection(res.data));
   });
-  return arr;
+}
+
+async function getCollection(name, details) {
+  return new Promise(async (resolve, reject) => {
+    const res = await bgg.getBggCollection({ username: name, own: 1, stats: 1 });
+
+    const validResponse = handleResponse(res, reject);
+    if (!validResponse) { return; }
+
+    if (!details) {
+      resolve(new Collection(res.data));
+    }
+
+    resolve(getCollectionDetails(res.data.item));
+  });
 }
 
 router.get('/', (req, res) => {
   res.send('Info: Collection API');
 });
 
-router.get('/username/:userId', (req, res) => {
-  getCollection(req.params.userId).then((result) => res.send(result));
+router.get('/:userId', (req, res) => {
+  getCollection(req.params.userId, false)
+    .then((result) => res.send(result))
+    .catch((error) => res.status(error.code).send(error.message));
 });
 
-router.get('/usernames', (req, res) => {
+router.get('/details/:userId', (req, res) => {
+  getCollection(req.params.userId, true)
+    .then((result) => res.send(result))
+    .catch((error) => res.status(error.code).send(error.message));
+});
+
+router.get('/:usernames', (req, res) => {
   const usernameString = req.query.names;
   const usernames = usernameString.split(';');
 

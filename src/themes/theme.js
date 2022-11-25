@@ -1,4 +1,4 @@
-import { createTheme } from "@mui/material/styles";
+import { createTheme } from '@mui/material/styles';
 
 // Font Family
 const font = "'Montserrat', sans-serif";
@@ -13,24 +13,24 @@ const grey = '#BFC0C0';
 export const appTheme = createTheme({
   palette: {
     primary: {
-      main: dark_blue,
+      main: dark_blue
     },
     secondary: {
-      main: orange,
+      main: orange
     },
     info: {
-      main: grey_blue,
+      main: grey_blue
     },
     white: {
-      main: white,
+      main: white
     },
     grey: {
-      main: grey,
+      main: grey
     },
     background: {
       default: dark_blue,
-      paper: grey_blue,
-    },
+      paper: grey_blue
+    }
   },
   typography: {
     h1: {
@@ -49,14 +49,14 @@ export const appTheme = createTheme({
     h3: {
       color: grey,
       fontSize: '1.5rem',
-      fontFamily: font,
+      fontFamily: font
     },
     h4: {
       color: white,
       fontSize: '16px',
       fontFamily: font,
       fontWeight: 'bold',
-      textTransform: "uppercase",
+      textTransform: 'uppercase',
       letterSpacing: '2px',
       paddingBottom: '10px',
       borderBottom: '2px solid',
@@ -70,26 +70,36 @@ export const appTheme = createTheme({
       fontFamily: font,
       fontWeight: 'bold',
       marginBottom: '5px',
-      overflow: "hidden",
-      textOverflow: "ellipsis",
-      display: "-webkit-box",
-      "-webkit-line-clamp": '2',
-      "-webkit-box-orient": "vertical"
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      display: '-webkit-box',
+      '-webkit-line-clamp': '2',
+      '-webkit-box-orient': 'vertical'
     },
     p: {
       color: grey,
       fontSize: '1rem',
-      fontFamily: font,
+      fontFamily: font
     },
     body: {
       color: grey,
       fontSize: '0.8125rem',
-      fontFamily: font,
+      fontFamily: font
     },
     field_label: {
       color: white,
       fontSize: '12px',
+      fontFamily: font
+    },
+    tags: {
+      color: white,
+      fontSize: '13px',
       fontFamily: font,
+      display: '-webkit-box',
+      textOverflow: 'ellipsis',
+      '-webkit-line-clamp': '4',
+      '-webkit-box-orient': 'vertical',
+      overflow: 'hidden'
     }
   },
   components: {
@@ -109,7 +119,7 @@ export const appTheme = createTheme({
       }
     },
     MuiAccordionSummary: {
-      styleOverrides: { 
+      styleOverrides: {
         root: {
           backgroundColor: dark_blue,
           color: white,
@@ -140,7 +150,7 @@ export const appTheme = createTheme({
         root: {
           color: white,
           marginRight: '7px',
-          marginBottom: '7px',
+          marginBottom: '7px'
         },
         icon: {
           color: orange
@@ -150,9 +160,9 @@ export const appTheme = createTheme({
     MuiInputBase: {
       styleOverrides: {
         root: {
-          color: white,
+          color: white
         }
-      },
+      }
     },
     MuiInputLabel: {
       styleOverrides: {
@@ -178,7 +188,7 @@ export const appTheme = createTheme({
     MuiOutlinedInput: {
       styleOverrides: {
         notchedOutline: {
-          borderColor: grey_blue,
+          borderColor: grey_blue
         },
         root: {
           backgroundColor: grey_blue,
@@ -202,7 +212,7 @@ export const appTheme = createTheme({
           backgroundColor: orange
         },
         markLabel: {
-          color: white,
+          color: white
           // "&:nth-child(even)": {
           //   transform: 'translateX(-100%)'
           // },
@@ -221,24 +231,24 @@ export const appTheme = createTheme({
 export const guestTheme = createTheme({
   palette: {
     primary: {
-      main: dark_blue,
+      main: dark_blue
     },
     secondary: {
-      main: orange,
+      main: orange
     },
     info: {
-      main: grey_blue,
+      main: grey_blue
     },
     white: {
-      main: white,
+      main: white
     },
     grey: {
-      main: grey,
+      main: grey
     },
     background: {
       default: dark_blue,
-      paper: grey_blue,
-    },
+      paper: grey_blue
+    }
   },
   typography: {
     h1: {
@@ -251,13 +261,13 @@ export const guestTheme = createTheme({
     h3: {
       color: grey,
       fontSize: '1.5rem',
-      fontFamily: font,
+      fontFamily: font
     },
     body: {
       color: grey,
       fontSize: '0.8125rem',
-      fontFamily: font,
-    },
+      fontFamily: font
+    }
   },
   components: {
     MuiAppBar: {
@@ -278,9 +288,9 @@ export const guestTheme = createTheme({
     MuiInputBase: {
       styleOverrides: {
         root: {
-          color: white,
+          color: white
         }
-      },
+      }
     },
     MuiInputLabel: {
       styleOverrides: {
@@ -299,7 +309,7 @@ export const guestTheme = createTheme({
     MuiOutlinedInput: {
       styleOverrides: {
         notchedOutline: {
-          borderColor: white,
+          borderColor: white
         },
         root: {
           hover: {

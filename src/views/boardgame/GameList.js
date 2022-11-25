@@ -1,7 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { Box, CircularProgress } from '@mui/material';
 import { Library } from '../../components';
-import { getCollectionData } from '../../actions';
+import { getCollectionWithDetailsData } from '../../actions';
 
 function withParams(Component) {
   return (props) => <Component {...props} params={useParams()} />;
@@ -12,7 +13,7 @@ class GameList extends React.Component {
     super();
 
     this.state = {
-      collection: []
+      results: undefined
     };
   }
 
@@ -22,7 +23,7 @@ class GameList extends React.Component {
 
     this.loadData(id).then((result) => {
       this.setState({
-        collection: result
+        results: result
       });
     });
   }
@@ -30,14 +31,23 @@ class GameList extends React.Component {
   // eslint-disable-next-line class-methods-use-this
   loadData(username) {
     if (username) {
-      return getCollectionData(username);
+      return getCollectionWithDetailsData(username);
     }
-    return getCollectionData('rsiep');
+    return getCollectionWithDetailsData('rsiep');
   }
 
   render() {
+    const { results } = this.state;
+    if (results) {
+      const { collection } = results;
+      return (
+        <Library title="Collection" collection={collection} />
+      );
+    }
     return (
-      <Library title="Collection" collection={this.state.collection} />
+      <Box style={{ textAlign: 'center', paddingTop: '50px' }}>
+        <CircularProgress color="secondary" />
+      </Box>
     );
   }
 }
