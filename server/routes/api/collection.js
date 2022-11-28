@@ -23,11 +23,20 @@ async function getCollectionDetails(collection) {
   return new Promise(async (resolve, reject) => {
     const bgIds = collection.map((element) => Number(element.objectid));
     const res = await bgg.getBggThing({ id: bgIds, stats: 1 });
+    let data = [];
 
     const validBgResponse = handleResponse(res, reject);
     if (!validBgResponse) { return; }
+    
+    //add additional info to the normal collection
+    for(let i = 0; i < collection.length; i++) {
+      data.push({
+        ...collection[i], 
+        ...(res.data.item.find((item) => item.id == collection[i].objectid))
+      });
+    }
 
-    resolve(new Collection(res.data));
+    resolve(new Collection(data));
   });
 }
 
@@ -62,13 +71,13 @@ router.get('/details/:userId', (req, res) => {
     .catch((error) => res.status(error.code).send(error.message));
 });
 
-router.get('/:usernames', (req, res) => {
-  const usernameString = req.query.names;
+router.get('/group/:usernames', (req, res) => {
+  const usernameString = req.params.usernames;
   const usernames = usernameString.split(';');
 
   const promises = [];
   usernames.forEach((name) => {
-    promises.push(getCollection(name));
+    promises.push(getCollection(name, true));
   });
 
   Promise.all(promises).then((results) => {

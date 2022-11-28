@@ -35,6 +35,10 @@ class Game {
     this.contributors.publishers = this.filterLinks(obj.link, 'boardgamepublisher');
     this.contributors.designers = this.filterLinks(obj.link, 'boardgamedesigner');
     this.contributors.artists = this.filterLinks(obj.link, 'boardgameartist');
+    //User Information
+    this.details.userRating = parseInt(obj.stats.rating.value) || '';
+    this.details.plays = parseInt(obj.numPlays);
+    this.details.ownedStatus = this.getOwnedStatus(obj.status);
   }
 
   findName(names) {
@@ -46,13 +50,13 @@ class Game {
 
   // TODO: Look-up decode XML in Javascript
   cleanString(str) {
-    return str.toString().replaceAll('&amp;', '&')
+    return (str) ? str.toString().replaceAll('&amp;', '&')
       .replaceAll('&amp;', '&')
       .replaceAll('&#039;', "'")
       .replaceAll('&#10;', '\n')
       .replaceAll('&mdash;', '—')
       .replaceAll('&ndash;', '-')
-      .replaceAll('&#195;&#182;', 'ã');
+      .replaceAll('&#195;&#182;', 'ã') : str;
   }
 
   filterLinks(links, filterVal) {
@@ -64,6 +68,17 @@ class Game {
       results.push(item.value);
     });
     return results;
+  }
+
+  getOwnedStatus(status) {
+    if(status.own === '1') return 'own';
+    if(status.prevowned === '1') return 'prevowned';
+    if(status.fortrade === '1') return 'fortrade';
+    if(status.want === '1') return 'want';
+    if(status.wanttoplay === '1') return 'wanttoplay';
+    if(status.wanttobuy === '1') return 'wanttobuy';
+    if(status.wishlist === '1') return 'wishlist';
+    if(status.preordered === '1') return 'preordered';
   }
 }
 
