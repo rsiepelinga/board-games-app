@@ -18,7 +18,7 @@ class LibraryCardDetailed extends React.Component {
 
   render() {
     const { game } = this.props;
-    const { details, image_url, tags } = game;
+    const { details, image_url } = game;
     const {
       id, name, year_published, duration, players, rating
     } = details;

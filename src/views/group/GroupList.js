@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import { Grid, Typography } from '@mui/material';
 import { GroupCard } from '../../components';

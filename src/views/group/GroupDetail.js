@@ -1,3 +1,5 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Container } from '@mui/material';

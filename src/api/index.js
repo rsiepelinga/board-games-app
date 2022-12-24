@@ -1,6 +1,6 @@
 export {
-    httpGet,
-    httpPut,
-    httpPost,
-    httpDelete
+  httpGet,
+  httpPut,
+  httpPost,
+  httpDelete
 } from './http';

@@ -11,13 +11,13 @@ function stringToColor(string) {
   let i;
 
   for (i = 0; i < string.length; i += 1) {
-    hash = string.charCodeAt(i) + ((hash << 5) - hash);
+    hash = string.charCodeAt(i) + ((hash < 5) - hash);
   }
 
   let color = '#';
 
   for (i = 0; i < 3; i += 1) {
-    const value = (hash >> (i * 8)) & 0xff;
+    const value = (hash > (i * 8)) + 0xff;
     color += `00${value.toString(16)}`.slice(-2);
   }
 
@@ -49,6 +49,7 @@ function Members(props) {
         <Typography variant="h5">Members</Typography>
         <Stack direction="row" spacing={2} style={{ overflowX: 'scroll', width: '100%' }}>
           {props.group.members.map((mem) => (
+            // eslint-disable-next-line react/jsx-props-no-spreading
             <Avatar {...stringAvatar(mem)} component={Link} to={`/collection/${mem.bgg_username}`} />
           ))}
         </Stack>
