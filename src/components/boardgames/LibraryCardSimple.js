@@ -19,7 +19,7 @@ class LibraryCardSimple extends React.Component {
   render() {
     const { game } = this.props;
     const { details, image_url } = game;
-    const { id, name, year_published } = details;
+    const { id, name } = details;
 
     return (
       <Grid container component={Link} to={`/boardgame/${id}`} style={{ textDecoration: 'none', paddingBottom: '10px' }}>
@@ -28,8 +28,8 @@ class LibraryCardSimple extends React.Component {
           <img
             src={image_url}
             alt={name}
-            width={150}
-            height={150}
+            width={300}
+            height={300}
             style={{
               objectFit: 'cover', borderRadius: '10px', maxHeight: '100%', maxWidth: '100%'
             }}

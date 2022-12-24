@@ -1,38 +1,61 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Box, Container, Grid, Typography
+  Container, Grid, IconButton, Typography
 } from '@mui/material';
-import LibraryCardDetailed from './LibraryCardDetailed';
-import LibraryCardExpanded from './LibraryCardExpanded';
+import DnsIcon from '@mui/icons-material/Dns';
+import FeaturedVideoIcon from '@mui/icons-material/FeaturedVideo';
+import WindowIcon from '@mui/icons-material/Window';
 import LibraryCardSimple from './LibraryCardSimple';
+import LibraryCardExpanded from './LibraryCardExpanded';
+import LibraryCardDetailed from './LibraryCardDetailed';
 
 class Library extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      cardType: 'simple'
+    };
+  }
+
+  handleChangeView(view) {
+    this.setState({
+      cardType: view
+    });
   }
 
   render() {
     const { collection, title } = this.props;
-    const cardType = 'expanded';
+    const { cardType } = this.state;
 
     return (
       <Container>
-        <Box>
-          <Typography variant="h4">
-            {title}
-          </Typography>
-        </Box>
-
-        {/* Results */}
         <Grid container style={{ display: 'inline-flex' }}>
+          <Grid xs={12}>
+            <Typography variant="h4">
+              {title}
+            </Typography>
+          </Grid>
+
+          <Grid xs={12} style={{ textAlign: 'right' }}>
+            <IconButton onClick={() => this.handleChangeView('simple')}>
+              <WindowIcon color={cardType === 'simple' ? 'white' : 'info'} />
+            </IconButton>
+            <IconButton onClick={() => this.handleChangeView('detailed')}>
+              <DnsIcon color={cardType === 'detailed' ? 'white' : 'info'} />
+            </IconButton>
+            <IconButton onClick={() => this.handleChangeView('expanded')}>
+              <FeaturedVideoIcon color={cardType === 'expanded' ? 'white' : 'info'} />
+            </IconButton>
+          </Grid>
+
+          {/* Results */}
           {collection.map((game) => (
             <Grid xs={12} md={6} lg={4}>
+              { cardType === 'simple' && <LibraryCardSimple key={game.id} game={game} /> }
               { cardType === 'detailed' && <LibraryCardDetailed key={game.id} game={game} /> }
               { cardType === 'expanded' && <LibraryCardExpanded key={game.id} game={game} /> }
-              { cardType === 'simple' && <LibraryCardSimple key={game.id} game={game} /> }
             </Grid>
           ))}
         </Grid>
