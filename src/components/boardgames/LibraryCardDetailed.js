@@ -18,7 +18,7 @@ class LibraryCardDetailed extends React.Component {
 
   render() {
     const { game } = this.props;
-    const { details, image_url, tags } = game;
+    const { details, image_url } = game;
     const {
       id, name, year_published, duration, players, rating
     } = details;
@@ -26,19 +26,19 @@ class LibraryCardDetailed extends React.Component {
     return (
       <Grid container component={Link} to={`/boardgame/${id}`} style={{ textDecoration: 'none', paddingBottom: '10px' }}>
         {/* Left Column */}
-        <Grid xs={4} style={{ textAlign: 'center', verticalAlign: 'center' }}>
+        <Grid xs={5} style={{ textAlign: 'center', verticalAlign: 'center' }}>
           <img
             src={image_url}
             alt={name}
-            width={100}
-            height={100}
+            width={125}
+            height={125}
             style={{
               objectFit: 'cover', borderRadius: '10px', maxHeight: '100%', maxWidth: '100%'
             }}
           />
         </Grid>
 
-        <Grid xs={8} style={{ paddingLeft: '10px' }}>
+        <Grid xs={7} style={{ paddingLeft: '10px' }}>
           <Box>
             <Typography variant="h5">
               {name}

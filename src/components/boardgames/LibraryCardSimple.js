@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import Box from '@mui/material/Box';
-import Chip from '@mui/material/Chip';
 import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import PersonIcon from '@mui/icons-material/Person';
-import StarIcon from '@mui/icons-material/Star';
+// import Box from '@mui/material/Box';
+// import Chip from '@mui/material/Chip';
+// import Typography from '@mui/material/Typography';
+// import AccessTimeIcon from '@mui/icons-material/AccessTime';
+// import PersonIcon from '@mui/icons-material/Person';
+// import StarIcon from '@mui/icons-material/Star';
 
 class LibraryCardSimple extends React.Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class LibraryCardSimple extends React.Component {
   render() {
     const { game } = this.props;
     const { details, image_url } = game;
-    const { id, name, year_published } = details;
+    const { id, name } = details;
 
     return (
       <Grid container component={Link} to={`/boardgame/${id}`} style={{ textDecoration: 'none', paddingBottom: '10px' }}>
@@ -28,8 +28,8 @@ class LibraryCardSimple extends React.Component {
           <img
             src={image_url}
             alt={name}
-            width={150}
-            height={150}
+            width={300}
+            height={300}
             style={{
               objectFit: 'cover', borderRadius: '10px', maxHeight: '100%', maxWidth: '100%'
             }}
