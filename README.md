@@ -1,8 +1,6 @@
 # Getting Started with Table Talk App
 
-This project was created with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
+## Starting Your Local Dev Environment
 
 In the project directory, you can run:
 
@@ -16,6 +14,9 @@ Paths:\
 `/api/boardgame/:id`
 
 The page will not automatically reload when you make changes.\
+To make changes you will need to kill the server and then restart.\
+
+In a separate terminal in your project directory, you can run:
 
 ### `npm start`
 
@@ -24,6 +25,27 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
+
+## Server Files
+
+- **server**
+  - **models**: This folder stores all the models for how data will be formatted once it's returned from the server.
+    - **Collection.js**: Stores an array of board games (Game).
+    - **Game.js**: Stores all the key fields about an individual board game.
+  - **routes/api**: These are the paths and where the code that makes the call outs to BGG lives
+    - **boardgame.js**: Uses "getGame" to retrieve a singular board game by id from BGG
+    - **collection.js**: Uses "getCollection" to get all the board games in each user(s) collection.
+  - **index.js**: Stores all the paths to everything referenced in the server folder.
+
+## React Files
+
+More documentation coming soon.
+
+# React App Documentation
+
+This project was created with [Create React App](https://github.com/facebook/create-react-app).
+
+## Available Scripts
 
 ### `npm test`
 
