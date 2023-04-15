@@ -46,7 +46,7 @@ class Game {
 
   // TODO: Look-up decode XML in Javascript
   cleanString(str) {
-    return str.toString().replaceAll('&amp;', '&')
+    return str?.toString().replaceAll('&amp;', '&')
       .replaceAll('&amp;', '&')
       .replaceAll('&#039;', "'")
       .replaceAll('&#10;', '\n')
