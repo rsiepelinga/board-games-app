@@ -27,7 +27,7 @@ async function getCollectionDetails(collection) {
     const validBgResponse = handleResponse(res, reject);
     if (!validBgResponse) { return; }
 
-    resolve(new Collection(res.data));
+    resolve(new Collection(res.data, true));
   });
 }
 
@@ -39,10 +39,10 @@ async function getCollection(name, details) {
     if (!validResponse) { return; }
 
     if (!details) {
-      resolve(new Collection(res.data));
+      resolve(new Collection(res.data, false));
+    } else {
+      resolve(getCollectionDetails(res.data.item));
     }
-
-    resolve(getCollectionDetails(res.data.item));
   });
 }
 

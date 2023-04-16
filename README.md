@@ -39,7 +39,32 @@ You may also see any lint errors in the console.
 
 ## React Files
 
-More documentation coming soon.
+- **src**
+  - **actions**
+    - **GameActions.js**
+      - getCollectionData(username)
+        - returns a Collection with brief details of each game in the given user's collection
+      - getCollectionWithDetailsData(username)
+        - returns a Collection with full details of each game in the given user's collection
+      - getGameData(gameId)
+        - returns a Game with all the information based on the game id
+    - **GroupActions.js**
+      - getGroupsData(username)
+        - will return all groups that a user is a part of
+      - getGroupData(groupId)
+        - will return all the data around a particular group
+  - **api**
+    - 
+  - **assets**
+    - **logo.png**
+    - **meeple.png**
+  - **components**
+  - **layouts**
+    - 
+  - **themes**
+    - 
+  - **views**
+    
 
 # React App Documentation
 

@@ -1,26 +1,28 @@
 class Game {
   constructor(obj) {
+    console.log('obj');
+    console.log(obj);
     // Descriptions
     this.details = {};
     this.details.id = obj.id || '';
     this.details.name = this.cleanString(this.findName(obj.name));
-    this.details.year_published = obj.yearpublished.value || '';
+    this.details.year_published = obj?.yearpublished?.value || '';
     // Duration
-    this.details.min_duration = obj.minplaytime.value || '';
-    this.details.max_duration = obj.maxplaytime.value || '';
-    this.details.duration = obj.minplaytime.value === obj.maxplaytime.value
-      ? obj.minplaytime.value
-      : `${obj.minplaytime.value}-${obj.maxplaytime.value}`;
+    this.details.min_duration = obj?.minplaytime?.value || '';
+    this.details.max_duration = obj?.maxplaytime?.value || '';
+    this.details.duration = obj?.minplaytime?.value === obj?.maxplaytime?.value
+      ? obj?.minplaytime?.value
+      : `${obj?.minplaytime?.value}-${obj?.maxplaytime?.value}`;
     // Players
-    this.details.min_players = obj.minplayers.value || '';
-    this.details.max_players = obj.maxplayers.value || '';
-    this.details.players = obj.minplayers.value === obj.maxplayers.value
-      ? obj.minplayers.value
-      : `${obj.minplayers.value}-${obj.maxplayers.value}`;
+    this.details.min_players = obj?.minplayers?.value || '';
+    this.details.max_players = obj?.maxplayers?.value || '';
+    this.details.players = obj?.minplayers?.value === obj?.maxplayers?.value
+      ? obj?.minplayers?.value
+      : `${obj?.minplayers?.value}-${obj?.maxplayers?.value}`;
     // Ratings
-    const ratings = obj.statistics.ratings;
-    this.details.weight = parseFloat(ratings.averageweight.value).toFixed(2) || '';
-    this.details.rating = parseFloat(ratings.average.value).toFixed(2) || '';
+    const ratings = obj?.statistics?.ratings;
+    this.details.weight = parseFloat(ratings?.averageweight?.value).toFixed(2) || '';
+    this.details.rating = parseFloat(ratings?.average?.value).toFixed(2) || '';
     // Description
     this.image_url = obj.image || '';
     this.description = this.cleanString(obj.description) || '';
@@ -46,7 +48,7 @@ class Game {
 
   // TODO: Look-up decode XML in Javascript
   cleanString(str) {
-    return str.toString().replaceAll('&amp;', '&')
+    return str?.toString().replaceAll('&amp;', '&')
       .replaceAll('&amp;', '&')
       .replaceAll('&#039;', "'")
       .replaceAll('&#10;', '\n')
@@ -58,11 +60,13 @@ class Game {
   filterLinks(links, filterVal) {
     // eslint-disable-next-line prefer-const
     let results = [];
-    links.filter((link) => (
-      link.type === filterVal
-    )).forEach((item) => {
-      results.push(item.value);
-    });
+    if (links) {
+      links.filter((link) => (
+        link.type === filterVal
+      )).forEach((item) => {
+        results.push(item.value);
+      });
+    }
     return results;
   }
 }
