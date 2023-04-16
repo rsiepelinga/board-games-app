@@ -13,7 +13,9 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
-import logo from '../../assets/logo.png';
+// import logo from '../../assets/logo.png';
+
+import LogoLoading from './LogoLoading';
 
 const drawerWidth = 240;
 const navItems = [
@@ -55,9 +57,10 @@ function NavBar(props) {
     <Box sx={{ display: 'flex' }}>
       <AppBar component="nav">
         <Toolbar>
-          <Box sx={{ padding: '10px 0' }} component={Link} to="/">
+          <LogoLoading />
+          {/* <Box sx={{ padding: '10px 0' }} component={Link} to="/">
             <img src={logo} alt="Logo" width="100" />
-          </Box>
+          </Box> */}
           <Box sx={{ flexGrow: 1 }} />
           <IconButton
             color="inherit"
