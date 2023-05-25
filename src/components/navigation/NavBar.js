@@ -57,10 +57,9 @@ function NavBar(props) {
     <Box sx={{ display: 'flex' }}>
       <AppBar component="nav">
         <Toolbar>
-          <LogoLoading />
-          {/* <Box sx={{ padding: '10px 0' }} component={Link} to="/">
-            <img src={logo} alt="Logo" width="100" />
-          </Box> */}
+          <Box sx={{ padding: '10px 0' }} component={Link} to="/">
+            <LogoLoading />
+          </Box>
           <Box sx={{ flexGrow: 1 }} />
           <IconButton
             color="inherit"

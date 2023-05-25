@@ -3,8 +3,7 @@
 
 
 .loading {
-  transform: scale(0.25);
-  background-color: #2d3142;
+  background-color: #2d3142; 
 }
 
 .meeple svg path {
