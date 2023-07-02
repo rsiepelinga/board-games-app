@@ -7,6 +7,7 @@ app.use(cors());
 
 app.use('/api/boardgame', require('./routes/api/boardgame'));
 app.use('/api/collection', require('./routes/api/collection'));
+app.use('/api/statistics', require('./routes/api/statistics'));
 
 app.get('/', (req, res) => {
   res.status(404).send("Oops! That route doesn't exist. Routes that do exist are /api/boardgame/:gameId or /api/collection/:username");
