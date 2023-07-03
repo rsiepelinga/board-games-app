@@ -1,11 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {
-  Accordion, AccordionSummary, AccordionDetails, Box, Typography
-} from '@mui/material';
-import { ExpandMore } from '@mui/icons-material';
-
 class Contributors extends React.Component {
   constructor(props) {
     super(props);
@@ -18,34 +13,24 @@ class Contributors extends React.Component {
     const { publishers, designers, artists } = contributors;
 
     return (
-      <Accordion>
-        <AccordionSummary expandIcon={<ExpandMore color="white" />}>
-          Publishers, Designers, and Artists
-        </AccordionSummary>
-        <AccordionDetails>
-          <Box>
-            <Typography variant="p">
-              <b>Publishers:</b>
-              {' '}
-              {publishers.join(', ')}
-            </Typography>
-          </Box>
-          <Box>
-            <Typography variant="p">
-              <b>Designers:</b>
-              {' '}
-              {designers.join(', ')}
-            </Typography>
-          </Box>
-          <Box>
-            <Typography variant="p">
-              <b>Artists:</b>
-              {' '}
-              {artists.join(', ')}
-            </Typography>
-          </Box>
-        </AccordionDetails>
-      </Accordion>
+      <div>
+        <h6>Publishers, Designers, and Artists</h6>
+        <p>
+          <b>Publishers:</b>
+          {' '}
+          {publishers.join(', ')}
+        </p>
+        <p>
+          <b>Designers:</b>
+          {' '}
+          {designers.join(', ')}
+        </p>
+        <p>
+          <b>Artists:</b>
+          {' '}
+          {artists.join(', ')}
+        </p>
+      </div>
     );
   }
 }

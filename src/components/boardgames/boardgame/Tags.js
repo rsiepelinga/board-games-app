@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Chip } from '@mui/material';
+import { Chip } from '@mui/material';
 import CategoryIcon from '@mui/icons-material/Category';
 import SettingsIcon from '@mui/icons-material/Settings';
 
@@ -16,14 +16,14 @@ class Tags extends React.Component {
     const { categories, mechanics } = tags;
 
     return (
-      <Box style={{ paddingTop: '10px', paddingBottom: '10px' }}>
+      <div style={{ paddingTop: '10px', paddingBottom: '10px' }}>
         {categories.map((category) => (
           <Chip icon={<CategoryIcon />} label={category} color="info" />
         ))}
         {mechanics.map((mechanic) => (
           <Chip icon={<SettingsIcon />} label={mechanic} color="info" />
         ))}
-      </Box>
+      </div>
     );
   }
 }

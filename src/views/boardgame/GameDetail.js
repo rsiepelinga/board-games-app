@@ -2,9 +2,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
-import { CircularProgress, Container } from '@mui/material';
+import { CircularProgress } from '@mui/material';
 import { getGameData } from '../../actions';
 import { GameWrapper } from '../../components';
+import '../../themes/styles.css';
 
 function withParams(Component) {
   return (props) => <Component {...props} params={useParams()} />;
@@ -41,9 +42,9 @@ class GameDetail extends React.Component {
     if (loaded) {
       const { game } = this.state;
       return (
-        <Container>
+        <div className="full-screen">
           <GameWrapper game={game} />
-        </Container>
+        </div>
       );
     }
     return (<CircularProgress color="secondary" />);

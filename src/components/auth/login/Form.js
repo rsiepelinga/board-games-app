@@ -1,72 +1,52 @@
 import React from 'react';
-import {
-  Container, Box, Typography, TextField, Button
-} from '@mui/material';
+import '../../../themes/styles.css';
+import '../../../themes/input.css';
 
 class Form extends React.Component {
   constructor(props) {
     super(props);
+    this.handleSignIn = this.handleSignIn.bind(this);
 
     this.state = {};
   }
 
+  handleSignIn() {
+    document.querySelectorAll('input').forEach((input) => {
+      if (input.value) {
+        localStorage.setItem(input.name, input.value);
+      }
+    });
+    if (localStorage.getItem('bggUsername')) {
+      window.location.href = '/';
+    }
+  }
+
   render() {
     return (
-      <Container maxWidth="sm">
-        <Box sx={{ padding: '10px', textAlign: 'left' }}>
-          <Typography variant="h1">
-            Hi welcome.
-          </Typography>
-          <Typography variant="h3">
-            Sign in to access cool board game stuff.
-          </Typography>
-        </Box>
-        <Box sx={{ height: '360px', padding: '15px 10px' }}>
-          <Box sx={{ padding: '5px 0' }}>
-            <TextField
-              fullWidth
-              id="username"
-              label="Username"
-              placeholder="Username"
-            />
-          </Box>
-          <Box sx={{ padding: '10px 0' }}>
-            <TextField
-              fullWidth
-              id="password"
-              type="password"
-              label="Password"
-              placeholder="Password"
-            />
-          </Box>
-        </Box>
-        <Box sx={{
-          padding: '10px',
-          textAlign: 'center'
-        }}
-        >
-          <Typography variant="body">
-            Don&apos;t have an account?
-            <Button
-              size="small"
-              variant="text"
-              color="secondary"
-              href="/register"
-            >
-              Sign Up
-            </Button>
-          </Typography>
-          <Button
-            fullWidth
-            size="large"
-            variant="contained"
-            color="secondary"
-            href="/"
-          >
-            Sign In
-          </Button>
-        </Box>
-      </Container>
+      <div className="full-screen">
+        <h1>Hi, welcome.</h1>
+        <h3>Enter your BGG username to access cool board game stuff.</h3>
+
+        <form className="display-stack">
+          <div className="input__wrapper">
+            <input className="input__field" type="text" name="firstName" id="firstName" placeholder="First Name" />
+            <label htmlFor="firstname" className="input__label">First Name</label>
+          </div>
+          <div className="input__wrapper">
+            <input className="input__field" type="text" name="bggUsername" id="bggUsername" placeholder="Username" />
+            <label htmlFor="bggUsername" className="input__label">BGG Username</label>
+          </div>
+        </form>
+
+        <div className="anchor">
+          <button type="button" className="input--orange" onClick={this.handleSignIn}>Sign In</button>
+
+          <small>
+            Don&apos;t have an account?&nbsp;
+            <a href="https://boardgamegeek.com/join">Sign Up on BGG</a>
+          </small>
+        </div>
+      </div>
     );
   }
 }

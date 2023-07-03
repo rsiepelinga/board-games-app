@@ -21,9 +21,9 @@ const drawerWidth = 240;
 const navItems = [
   { label: 'Home', path: '/' },
   { label: 'About', path: '/about' },
-  { label: 'Selector', path: '/selector' },
-  { label: 'Groups', path: '/groups' },
   { label: 'Collection', path: '/collection' },
+  { label: 'Groups', path: '/groups' },
+  { label: 'Selector', path: '/selector' },
   { label: 'Search', path: '/search' },
   { label: 'Profile', path: '/profile' },
   { label: 'Sign Out', path: '/login' }
