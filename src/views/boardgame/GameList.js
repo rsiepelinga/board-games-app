@@ -31,10 +31,7 @@ class GameList extends React.Component {
 
   // eslint-disable-next-line class-methods-use-this
   loadData(username) {
-    if (username) {
-      return getCollectionWithDetailsData(username);
-    }
-    return getCollectionWithDetailsData('rsiep');
+    return getCollectionWithDetailsData(username);
   }
 
   render() {

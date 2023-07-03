@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;800&display=swap');
+
+
+.loading {
+  background-color: #2d3142; 
+}
+
+.meeple svg path {
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 840;
+  stroke-dashoffset: 0;
+}
+
+.meeple svg path#primary {
+  fill: #ef8354;
+  transform: translateX(100px);
+}
+
+.meeple svg path#right {
+  animation: move-right 5s forwards;
+}
+
+.meeple svg path#left {
+  animation: move-left 5s forwards;
+}
+
+.meeple svg rect#table {
+  fill: #2d3142;
+  stroke: #ffffff;
+  stroke-width: 5;
+  fill-opacity: 0;  
+  translate: transformX(3px);
+  animation: draw-table 5s forwards;
+  text-align: center;
+}
+
+.meeple svg rect#table {
+  fill: #2d3142;
+  fill-opacity: 0;  
+  stroke-width: 5;
+  animation: draw-table 5s forwards;
+  transform: translate(403px, 205px) rotate(180deg);
+}
+
+.meeple svg text#logo {
+  text-transform: uppercase;
+  letter-spacing: 16px;
+  font-weight: bold;
+  font-size: 32px;
+  font-family: 'Montserrat', sans-serif;
+  animation: text-fade 5s forwards;
+}
+
+.meeple svg text#bgg {
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  font-size: 10px;
+  font-family: 'Montserrat', sans-serif;
+  animation: text-fade 5s forwards;
+}
+
+@keyframes move-right {
+  to {
+    fill: #875C4E;
+    transform: translateX(0);
+  }
+  from {
+    fill: #ef8354;
+    transform: translateX(100px);
+  }
+}
+
+@keyframes move-left {
+  to {
+    fill: #875C4E;
+    transform: translateX(200px);
+  }
+  from {
+    fill: #ef8354;
+    transform: translateX(100px);
+  }
+}
+
+@keyframes draw-table {
+  0% {
+    fill-opacity: 0;
+    stroke: #fff;
+    stroke-dasharray: 70;
+    stroke-dashoffset: 0;
+  }
+  100% {
+    fill-opacity: 1;
+    stroke: #fff;
+    stroke-dasharray: 550;
+    stroke-dashoffset: 700;
+  }
+}
+
+@keyframes text-fade {
+  0% {
+    fill-opacity: 0;
+  }
+  100% {
+    fill-opacity: 1;
+  }
+}
+

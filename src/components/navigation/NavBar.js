@@ -13,15 +13,17 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
-import logo from '../../assets/logo.png';
+// import logo from '../../assets/logo.png';
+
+import LogoLoading from './LogoLoading';
 
 const drawerWidth = 240;
 const navItems = [
   { label: 'Home', path: '/' },
   { label: 'About', path: '/about' },
-  { label: 'Selector', path: '/selector' },
-  { label: 'Groups', path: '/groups' },
   { label: 'Collection', path: '/collection' },
+  { label: 'Groups', path: '/groups' },
+  { label: 'Selector', path: '/selector' },
   { label: 'Search', path: '/search' },
   { label: 'Profile', path: '/profile' },
   { label: 'Sign Out', path: '/login' }
@@ -56,7 +58,7 @@ function NavBar(props) {
       <AppBar component="nav">
         <Toolbar>
           <Box sx={{ padding: '10px 0' }} component={Link} to="/">
-            <img src={logo} alt="Logo" width="100" />
+            <LogoLoading />
           </Box>
           <Box sx={{ flexGrow: 1 }} />
           <IconButton

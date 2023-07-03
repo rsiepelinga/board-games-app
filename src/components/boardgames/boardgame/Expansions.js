@@ -1,9 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Accordion, AccordionSummary, AccordionDetails, ListItem
-} from '@mui/material';
-import { ExpandMore } from '@mui/icons-material';
 
 class Expansions extends React.Component {
   constructor(props) {
@@ -15,20 +11,14 @@ class Expansions extends React.Component {
   render() {
     const { expansions } = this.props;
     return (
-      <Accordion>
-        <AccordionSummary expandIcon={<ExpandMore color="white" />}>
-          Expansions
-        </AccordionSummary>
-        <AccordionDetails>
+      <div>
+        <h6>Expansions</h6>
+        <p>
           {expansions.map((exp) => (
-            <ListItem key={exp} disablePadding>
-              &#8226;
-              {' '}
-              {exp}
-            </ListItem>
+            <li key={exp}>{exp}</li>
           ))}
-        </AccordionDetails>
-      </Accordion>
+        </p>
+      </div>
     );
   }
 }

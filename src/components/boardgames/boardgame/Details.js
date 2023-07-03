@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Typography } from '@mui/material';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import PersonIcon from '@mui/icons-material/Person';
 import StarIcon from '@mui/icons-material/Star';
@@ -19,30 +18,23 @@ class Details extends React.Component {
     } = details;
 
     return (
-      <Box>
-        <Typography variant="h2">{name}</Typography>
-        <Box style={{
-          paddingTop: '10px', display: 'flex', alignItems: 'center', flexWrap: 'wrap'
-        }}
-        >
+      <div>
+        <h2>{name}</h2>
+        <p style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
           <StarIcon color="secondary" style={{ marginRight: '10px' }} />
-          <Typography variant="p">{`${rating} / 10`}</Typography>
-        </Box>
-        <Box style={{
-          paddingTop: '10px', display: 'flex', alignItems: 'center', flexWrap: 'wrap'
-        }}
-        >
+          {`${rating} / 10`}
+
+        </p>
+        <p style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
           <PersonIcon color="secondary" style={{ marginRight: '10px' }} />
-          <Typography variant="p">{`${players} players`}</Typography>
-        </Box>
-        <Box style={{
-          paddingTop: '10px', display: 'flex', alignItems: 'center', flexWrap: 'wrap'
-        }}
-        >
+          {`${players} players`}
+
+        </p>
+        <p style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
           <AccessTimeIcon color="secondary" style={{ marginRight: '10px' }} />
-          <Typography variant="p">{`${duration} minutes`}</Typography>
-        </Box>
-      </Box>
+          {`${duration} minutes`}
+        </p>
+      </div>
     );
   }
 }

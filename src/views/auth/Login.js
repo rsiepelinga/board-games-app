@@ -5,7 +5,9 @@ import { LoginWrapper } from '../../components';
 class Login extends React.Component {
   render() {
     return (
-      <LoginWrapper />
+      <div>
+        <LoginWrapper />
+      </div>
     );
   }
 }

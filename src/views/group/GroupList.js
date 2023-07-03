@@ -1,12 +1,13 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
-import { Grid, Typography } from '@mui/material';
 import { GroupCard } from '../../components';
 import { getGroupsData } from '../../actions';
+import '../../themes/input.css';
 
 class GameList extends React.Component {
   constructor() {
     super();
+    this.handleAddGroup.bind(this);
 
     this.state = {
       groups: []
@@ -15,6 +16,10 @@ class GameList extends React.Component {
 
   componentDidMount() {
     this.loadData();
+  }
+
+  handleAddGroup() {
+    window.location.href = '/group/new';
   }
 
   loadData() {
@@ -26,17 +31,21 @@ class GameList extends React.Component {
 
   render() {
     return (
-      <Grid container style={{ display: 'inline-flex' }}>
-        <Grid xs={12}>
-          <Typography variant="h4">My Groups</Typography>
-        </Grid>
+      <div className="full-screen">
+        <h1>My Groups.</h1>
 
         {this.state.groups.map((group) => (
-          <Grid xs={6} sm={4} md={3} style={{ padding: '10px' }} key={group.id}>
+          <div key={group.id}>
             <GroupCard group={group} />
-          </Grid>
+          </div>
         ))}
-      </Grid>
+
+        <div className="anchor">
+          <button type="button" className="input--orange" onClick={this.handleAddGroup}>
+            Add Group
+          </button>
+        </div>
+      </div>
     );
   }
 }

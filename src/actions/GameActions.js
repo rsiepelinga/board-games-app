@@ -1,7 +1,8 @@
 import { httpGet } from '../api';
 
 function getCollectionData(username) {
-  return httpGet(`http://localhost:8000/api/collection/${username}`)
+  const userId = username || localStorage.getItem('bggUsername');
+  return httpGet(`http://localhost:8000/api/collection/${userId}`)
     .then((result) => result)
     .catch((error) => {
       console.error('ERROR getCollectionData', error);
@@ -9,7 +10,8 @@ function getCollectionData(username) {
 }
 
 function getCollectionWithDetailsData(username) {
-  return httpGet(`http://localhost:8000/api/collection/details/${username}`)
+  const userId = username || localStorage.getItem('bggUsername');
+  return httpGet(`http://localhost:8000/api/collection/details/${userId}`)
     .then((result) => result)
     .catch((error) => {
       console.error('ERROR getCollectionWithDetailsData', error);
