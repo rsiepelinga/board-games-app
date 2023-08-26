@@ -1,3 +1,4 @@
+/* eslint no-console: ["error", { allow: ["warn", "error"] }] */
 import { httpGet } from '../api';
 
 function getCollectionData(username) {

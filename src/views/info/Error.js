@@ -51,6 +51,7 @@ const Error = () => {
     }
   };
 
+  // eslint-disable-next-line
   const style = function () {
     if (window.innerWidth < 800) {
       return mobileStyle;
