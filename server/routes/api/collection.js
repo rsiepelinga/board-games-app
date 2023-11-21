@@ -19,7 +19,7 @@ function handleResponse(res, reject) {
   return isValid;
 }
 
-async function getCollectionDetails(collection) {
+async function getCollectionDetails(collection, user) {
   return new Promise(async (resolve, reject) => {
     const bgIds = collection.map((element) => Number(element.objectid));
     const res = await bgg.getBggThing({ id: bgIds, stats: 1 });
@@ -27,7 +27,7 @@ async function getCollectionDetails(collection) {
     const validBgResponse = handleResponse(res, reject);
     if (!validBgResponse) { return; }
 
-    resolve(new Collection(res.data, true));
+    resolve(new Collection(res.data, true, user));
   });
 }
 
@@ -39,9 +39,9 @@ async function getCollection(name, details) {
     if (!validResponse) { return; }
 
     if (!details) {
-      resolve(new Collection(res.data, false));
+      resolve(new Collection(res.data, false, name));
     } else {
-      resolve(getCollectionDetails(res.data.item));
+      resolve(getCollectionDetails(res.data.item, name));
     }
   });
 }
@@ -62,9 +62,8 @@ router.get('/details/:userId', (req, res) => {
     .catch((error) => res.status(error.code).send(error.message));
 });
 
-router.get('/:usernames', (req, res) => {
-  const usernameString = req.query.names;
-  const usernames = usernameString.split(';');
+router.get('/group/:usernames', (req, res) => {
+  const usernames = req.params.usernames.split(';');
 
   const promises = [];
   usernames.forEach((name) => {

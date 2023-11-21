@@ -1,7 +1,5 @@
 class Game {
   constructor(obj) {
-    console.log('obj');
-    console.log(obj);
     // Descriptions
     this.details = {};
     this.details.id = obj.id || '';

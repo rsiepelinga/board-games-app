@@ -1,7 +1,9 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import { useParams, Link } from 'react-router-dom';
 import { Container } from '@mui/material';
 import { getGroupData } from '../../actions';
 import { GroupWrapper } from '../../components';
@@ -37,6 +39,10 @@ class GroupDetail extends React.Component {
     return (
       <Container>
         <GroupWrapper group={this.state.group} />
+
+        <Box component={Link} to={`/group/ratings/${this.state.group.id}`}>
+          <Typography variant="h5" style={{ textAlign: 'center', width: '100%' }}>See more details</Typography>
+        </Box>
       </Container>
     );
   }

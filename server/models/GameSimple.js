@@ -20,6 +20,7 @@ class GameSimple {
     // Ratings
     const ratings = obj.stats.rating;
     this.details.rating = parseFloat(ratings.average.value).toFixed(2) || '';
+    this.user_rating = ratings?.value;
     // Description
     this.image_url = obj.image || '';
   }

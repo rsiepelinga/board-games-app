@@ -10,6 +10,7 @@ import {
   GameList,
   GameSelector,
   GroupDetail,
+  GroupRatings,
   GroupEdit,
   GroupList,
   GroupNew,
@@ -42,6 +43,7 @@ const AppRoutes = () => (
       <Route path="/collection/:id" element={<Layout theme={appTheme} component={GameList} />} />
       <Route path="/boardgame/:id" element={<Layout theme={appTheme} component={GameDetail} />} />
       <Route path="/group/:id" element={<Layout theme={appTheme} component={GroupDetail} />} />
+      <Route path="/group/ratings/:id" element={<Layout theme={appTheme} component={GroupRatings} />} />
       <Route path="/group/:id/edit" element={<Layout theme={appTheme} component={GroupEdit} />} />
       <Route path="/groups" element={<Layout theme={appTheme} component={GroupList} />} />
       <Route path="/group/new" element={<Layout theme={appTheme} component={GroupNew} />} />

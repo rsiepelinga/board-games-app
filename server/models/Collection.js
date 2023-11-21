@@ -2,7 +2,8 @@ const Game = require('./Game');
 const GameSimple = require('./GameSimple');
 
 class Collection {
-  constructor(data, details) {
+  constructor(data, details, user) {
+    this.user = user;
     this.collection = [];
     data.item.forEach((element) => {
       if (details) {

@@ -7,6 +7,7 @@ export { default as GroupDetail } from './group/GroupDetail';
 export { default as GroupEdit } from './group/GroupEdit';
 export { default as GroupList } from './group/GroupList';
 export { default as GroupNew } from './group/GroupNew';
+export { default as GroupRatings } from './group/GroupRatings';
 export { default as Home } from './info/Home';
 export { default as Layout } from '../layouts/Layout';
 export { default as Login } from './auth/Login';

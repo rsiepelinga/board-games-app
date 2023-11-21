@@ -5,5 +5,6 @@ export {
 } from './GameActions';
 export {
   getGroupsData,
+  getGroupRatings,
   getGroupData
 } from './GroupActions';
