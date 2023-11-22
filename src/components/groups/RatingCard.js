@@ -55,6 +55,13 @@ class RatingCard extends React.Component {
                   {rating.rating}
                 </Typography>
               ))}
+              <br />
+              <b>
+                The Group&apos;s Average Rating:
+                {' '}
+                {game.statistics.mean_rating}
+                {' '}
+              </b>
             </Box>
           </Grid>
 
@@ -83,7 +90,11 @@ RatingCard.propTypes = {
     ratings: PropTypes.arrayOf(PropTypes.shape({
       user: PropTypes.string,
       rating: PropTypes.string
-    }))
+    })),
+    statistics: PropTypes.shape({
+      number_rated: PropTypes.number,
+      mean_rating: PropTypes.number
+    })
   }).isRequired
 };
 

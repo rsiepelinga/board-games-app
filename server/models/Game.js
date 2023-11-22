@@ -21,6 +21,7 @@ class Game {
     const ratings = obj?.statistics?.ratings;
     this.details.weight = parseFloat(ratings?.averageweight?.value).toFixed(2) || '';
     this.details.rating = parseFloat(ratings?.average?.value).toFixed(2) || '';
+    this.user_rating = ratings?.value;
     // Description
     this.image_url = obj.image || '';
     this.description = this.cleanString(obj.description) || '';

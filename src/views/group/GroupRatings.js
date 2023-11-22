@@ -28,25 +28,9 @@ class GroupRatings extends React.Component {
 
   loadData(id) {
     getGroupRatings(id).then((result) => {
-      const orderedData = [];
       console.log(result);
-      result.forEach((collection) => {
-        collection.collection.forEach((game) => {
-          const index = orderedData.findIndex((r) => r.bid === game.details.id);
-          if (index === -1) {
-            orderedData.push({
-              bid: game.details.id,
-              details: game.details,
-              ratings: [{ user: collection.user, rating: game.user_rating }]
-            });
-          } else {
-            orderedData[index].ratings.push({ user: collection.user, rating: game.user_rating });
-          }
-        });
-      });
-      console.log(orderedData);
       this.setState({
-        collections: orderedData
+        collections: result
       });
     });
   }
