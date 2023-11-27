@@ -6,5 +6,6 @@ export {
 export {
   getGroupsData,
   getGroupRatings,
-  getGroupData
+  getGroupData,
+  generateStats
 } from './GroupActions';

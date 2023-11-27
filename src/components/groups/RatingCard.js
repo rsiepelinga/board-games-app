@@ -32,7 +32,7 @@ class RatingCard extends React.Component {
     return (
       <Box style={{ padding: '15px' }} key={bid}>
         <Grid container component={Link} to={`/boardgame/${bid}`} style={style.card}>
-          <Grid xs={12} sm={8}>
+          <Grid xs={12} style={{ textAlign: 'center', verticalAlign: 'center' }}>
             <Box display={{ xs: 'block' }} style={{ textAlign: 'center' }}>
               <Typography variant="h5">
                 {details.name}
@@ -41,6 +41,15 @@ class RatingCard extends React.Component {
                 </span>
               </Typography>
             </Box>
+            <img
+              src={game.image_url}
+              alt={details.name}
+              width={125}
+              height={125}
+              style={{
+                objectFit: 'cover', borderRadius: '10px', maxHeight: '100%', maxWidth: '100%'
+              }}
+            />
           </Grid>
 
           <Grid xs={12}>
@@ -55,16 +64,16 @@ class RatingCard extends React.Component {
                   {rating.rating}
                 </Typography>
               ))}
+              <span style={{ fontSize: '12px' }}>{`BGG Average: ${game.details.rating}`}</span>
               <br />
               <b>
-                The Group&apos;s Average Rating:
+                Group&apos;s Average:
                 {' '}
                 {game.statistics.mean_rating}
                 {' '}
               </b>
             </Box>
           </Grid>
-
         </Grid>
       </Box>
     );
@@ -74,6 +83,7 @@ class RatingCard extends React.Component {
 RatingCard.propTypes = {
   game: PropTypes.shape({
     bid: PropTypes.string,
+    image_url: PropTypes.string,
     details: PropTypes.shape({
       id: PropTypes.string,
       name: PropTypes.string,
@@ -91,6 +101,11 @@ RatingCard.propTypes = {
       user: PropTypes.string,
       rating: PropTypes.string
     })),
+    contributors: PropTypes.shape({
+      publishers: PropTypes.arrayOf(PropTypes.string),
+      designers: PropTypes.arrayOf(PropTypes.string),
+      artists: PropTypes.arrayOf(PropTypes.string)
+    }),
     statistics: PropTypes.shape({
       number_rated: PropTypes.number,
       mean_rating: PropTypes.number
