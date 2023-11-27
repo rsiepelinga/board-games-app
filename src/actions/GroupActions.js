@@ -113,8 +113,11 @@ function generateStats(collection) {
     // per individual - differences/similiarities between people
     // per individual - most recommeneded board game for each person based off game
     // per individual - hottest take ranking against group
-    // groups' hottest take against BGG average
+    // groups' hottest take against BGG average ?
+    //     the difference for the other one is giving an unexpected data
     // BGG expected average - check
+    // Toggle how many people have rated for it to count
+    // add totals for tags, mechanics, and designers
 
     // game.ratings.forEach((rating) => {
     //   const index = stats.by_user.findIndex((r) => r.user === rating.user);

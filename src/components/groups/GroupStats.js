@@ -133,7 +133,7 @@ class GroupStats extends React.Component {
                       </Typography>
                       {`Rating: ${hottest_take_low.rating}`}
                       <br />
-                      {`BGG Rating: ${hottest_take_high.bgg_rating}`}
+                      {`BGG Rating: ${hottest_take_low.bgg_rating}`}
                       <br />
                       {`Users Rated: ${hottest_take_low.number_rated}`}
                       <br />
