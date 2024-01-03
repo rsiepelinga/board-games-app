@@ -105,12 +105,16 @@ router.get('/ratings/:usernames', (req, res) => {
   });
 
   Promise.all(promises).then((results) => {
-    const orderedData = [];
+    const orderedData = {
+      games: [],
+      tags: []
+    };
+
     results.forEach((collection) => {
       collection.collection.forEach((game) => {
-        const index = orderedData.findIndex((r) => r.bid === game.details.id);
+        const index = orderedData.games.findIndex((r) => r.bid === game.details.id);
         if (index === -1) {
-          orderedData.push({
+          orderedData.games.push({
             bid: game.details.id,
             details: game.details,
             image_url: game.image_url,
@@ -123,15 +127,37 @@ router.get('/ratings/:usernames', (req, res) => {
             }
           });
         } else {
-          orderedData[index].ratings.push({ user: collection.user, rating: game.user_rating });
-          const totalRating = (orderedData[index].statistics.mean_rating
-            * orderedData[index].statistics.number_rated);
-          orderedData[index].statistics.number_rated += 1;
-          orderedData[index].statistics.mean_rating = (+totalRating + +game.user_rating)
-            / orderedData[index].statistics.number_rated;
+          orderedData.games[index].ratings.push(
+            { user: collection.user, rating: game.user_rating }
+          );
+          // recalc avg
+          const totalRating = (orderedData.games[index].statistics.mean_rating
+            * orderedData.games[index].statistics.number_rated);
+          orderedData.games[index].statistics.number_rated += 1;
+          orderedData.games[index].statistics.mean_rating = (+totalRating + +game.user_rating)
+            / orderedData.games[index].statistics.number_rated;
         }
+
+        game.tags.mechanics.forEach((tag) => {
+          console.log(tag);
+          const tagIndex = orderedData.tags.findIndex((r) => r.tag === tag);
+          if (tagIndex === -1) {
+            orderedData.tags.push({
+              tag,
+              mean_rating: game.user_rating,
+              number_rated: 1
+            });
+          } else {
+            const tagRating = (orderedData.tags[tagIndex].mean_rating
+              * orderedData.tags[tagIndex].number_rated);
+            orderedData.tags[tagIndex].number_rated += 1;
+            orderedData.tags[tagIndex].mean_rating = (+tagRating + +game.user_rating)
+              / orderedData.tags[tagIndex].number_rated;
+          }
+        });
       });
     });
+
     res.send(orderedData);
   });
 });

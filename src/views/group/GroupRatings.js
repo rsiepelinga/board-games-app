@@ -18,7 +18,9 @@ class GroupRatings extends React.Component {
     super(props);
 
     this.state = {
-      collections: [],
+      collections: {
+        games: []
+      },
       stats: {}
     };
   }
@@ -31,15 +33,17 @@ class GroupRatings extends React.Component {
 
   loadData(id) {
     getGroupRatings(id).then((result) => {
+      console.log(result);
       this.setState({
         collections: result
       });
-      this.generateStatisticData(result);
+      this.generateStatisticData(result.games);
     });
   }
 
   generateStatisticData(collection) {
     const res = generateStats(collection);
+    console.log(res);
     this.setState({
       stats: res
     });
@@ -55,7 +59,7 @@ class GroupRatings extends React.Component {
         <hr />
         <Grid container>
           <Grid container xs={12} sm={12} md={12}>
-            {this.state.collections.map((game) => (
+            {this.state.collections.games.map((game) => (
               <Grid xs={12} sm={6} md={4} key={game.bid}>
                 <RatingCard game={game} key={game.bid} />
               </Grid>
